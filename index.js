@@ -26,5 +26,5 @@ discordClient.on('messageCreate', (message) => {
         message.channel.send("Started listening!")
     }
 })
-
+//test
 discordClient.login(config.token)
