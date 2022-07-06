@@ -1,0 +1,22 @@
+{
+    "name": "kyuta",
+    "version": "0.1.0",
+    "description": "nothing",
+    "author": "Sierra#7079",
+    "license": "MIT",
+    "main": "index.js",
+    "type": "module",
+    "scripts": {
+        "start": "node --experimental-json-modules index.js"
+    },
+    "repository": {
+        "url": "https://github.com/Sierrawastaken/Kyuta-bot.git",
+        "type": "git"
+    },
+    "dependencies": {
+        "bedrock-protocol": "^3.14.0",
+        "discord.js": "^13.8.0",
+        "fs": "^0.0.1-security",
+        "webhook-discord": "^3.7.8"
+    }
+}
