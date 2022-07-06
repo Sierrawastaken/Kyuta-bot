@@ -1,7 +1,9 @@
 import config from '../config.json' assert { type: "json" }
 import webhook from 'webhook-discord'
-const Hook = new webhook.Webhook(config.webhook)
 import { deathPackets } from './deathPackets.js'
+import { discordClient } from '../index.js'
+const Hook = new webhook.Webhook(config.webhook)
+
 
 export function chatMessage(user, content, colour) {
     let now = new Date()
@@ -9,8 +11,8 @@ export function chatMessage(user, content, colour) {
         .setName(user)
         .setColor(colour)
         //.setTitle(content)
-        .setDescription(content)
-        //.setFooter((`On: ${now.getHours()}:${now.getMinutes()}:${now.getSeconds}`))
+        .setDescription(`**${content}**`)
+        .setFooter(now)
     return Hook.send(message)
 }
 
@@ -19,9 +21,8 @@ export function connMessage(user, action, colour) {
     const message = new webhook.MessageBuilder()
         .setName("Server")
         .setColor(colour)
-        .setTitle(`${user[0]} has ${action} the server`)
-        .setDescription("‎")
-        .setFooter((`On: ${now.getHours()}:${now.getMinutes()}:${now.getSeconds}`))
+        .setDescription(`**${user[0]} has ${action} the server**`)
+        .setFooter(now)
     return Hook.send(message)
 }
 
@@ -35,9 +36,8 @@ export function deathMessage(user, type, colour) {
     const message = new webhook.MessageBuilder()
         .setName("Server")
         .setColor(colour)
-        .setTitle(type)
-        .setDescription("‎")
-        .setFooter((`On: ${now.getHours()}:${now.getMinutes()}:${now.getSeconds}`))
+        .setDescription(`**${type}**`)
+        .setFooter(now)
     return Hook.send(message)
 }
 //check too see if a user in that server has the same nickname as the message sender

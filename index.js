@@ -2,7 +2,7 @@ import discord from 'discord.js'
 import config from './config.json' assert { type: "json" }
 import { serverListen } from './name/serverConnect.js'
 
-const discordClient = new discord.Client({
+export const discordClient = new discord.Client({
     intents:[
         "GUILDS",
         "GUILD_MESSAGES",
