@@ -3,6 +3,8 @@ import config from './config.json' assert { type: "json" }
 import { serverListen } from './name/serverConnect.js'
 import fs from "fs"
 
+let host, port, version
+
 export const discordClient = new discord.Client({
     intents:[
         "GUILDS",
@@ -51,8 +53,17 @@ discordClient.on('messageCreate', async (message) => {
     }
 
     if (msgStr === "listen") {
-        serverListen(message.channelId, discordClient)
-        message.channel.send("Started listening!")
+        if (args[0]) {
+            host = args.shift()
+            port = parseInt(args.shift())
+            version = args.shift()
+            serverListen(message.channelId, discordClient, host, port, version)
+            message.channel.send("Started listening!")
+        } else {
+            serverListen(message.channelId, discordClient, config.host, config.port, config.version)
+            message.channel.send(`Started listening to ${config.host}:${config.port} on version ${config.version}`)
+        }
+        
     }
 })
 

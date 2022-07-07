@@ -2,13 +2,14 @@ import bedrock from 'bedrock-protocol'
 import config from './../config.json' assert { type: "json" }
 import { chatMessage, connMessage, deathMessage } from '../utils/messageTemplates.js'
 import fs from 'fs/promises'
-const random = Math.floor(Math.random() * 11)
+const random = Math.floor(Math.random() * 101)
 
-export async function serverListen(channelId, discordClient) {
-    const bedrockClient = bedrock.createClient({
-        host: config.host,
-        port: config.port,
-        version: config.version,
+export async function serverListen(channelId, discordClient, host, port, version) {
+
+    let bedrockClient = bedrock.createClient({
+        host: host,
+        port: port,
+        version: version,
         username: `bridgechat${random}`,
         offline: true
     })
@@ -28,21 +29,43 @@ export async function serverListen(channelId, discordClient) {
         }
         if (packet.type === "json") {
             //ill fucking parse this to be more readable later i cant be asked rn
-            //fs.appendFile(commandLog, `${packet.message}`)
+            fs.appendFile('./utils/commandLog.txt', `${packet.message}`)
         }
         
     })
 
     discordClient.on('messageCreate', async (message) => {
         if (message.channel.id != channelId) return
-        if (message.author.bot || message.author.webhook) return
+        if (message.author.bot) return
+        
         if (message.content === `${config.prefix}break`) {
             bedrockClient.disconnect()
             message.channel.send("Stopped listening to the server!")
             console.log("Stopped listening to the server")
             return
-        } if (!message.reference) {
-            bedrockClient.queue("command_request", {
+        }
+        if (message.content.startsWith(config.runRawPrefix)) {
+            let command = message.content.slice(config.runRawPrefix.length).trim()
+
+            bedrockClient.queue('command_request', {
+            command: `/${command}`,
+            origin: {
+                size: 0,
+                type: 0,
+                uuid: "",
+                request_id: "",
+                player_entity_id: "",
+            },
+            interval: false,
+            })
+
+            return //message.channel.send("Command ran successfully ")
+        }
+        
+        //keep commands above ^^^^
+
+        if (!message.reference) {
+            bedrockClient.queue('command_request', {
                 command: `/tellraw @a {"rawtext":[{"text":"§r§4[Discord]§f ${message.author.username}: ${message.content}"}]}`,
                 origin: {
                   size: 0,
@@ -57,7 +80,7 @@ export async function serverListen(channelId, discordClient) {
             let repliedMessage = await message.fetchReference()
             let replie = repliedMessage.author.username
 
-            bedrockClient.queue("command_request", {
+            bedrockClient.queue('command_request', {
                 command: `/tellraw @a {"rawtext":[{"text":"§r§4[Discord]§f ${message.author.username} replying to ${replie}: ${message.content}"}]}`,
                 origin: {
                     size: 0,
