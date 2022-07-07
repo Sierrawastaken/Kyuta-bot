@@ -1,6 +1,7 @@
 import discord from 'discord.js'
 import config from './config.json' assert { type: "json" }
 import { serverListen } from './name/serverConnect.js'
+import fs from "fs"
 
 export const discordClient = new discord.Client({
     intents:[
@@ -10,21 +11,49 @@ export const discordClient = new discord.Client({
     ]
 })
 
-discordClient.name = config.botName
-
 discordClient.on("ready", () => {
-    console.log(`logged in as ${discordClient.name}`)
+    console.log(`logged in as ${discordClient.user.username}`)
 })
 
-discordClient.on('messageCreate', (message) => {
+discordClient.on('messageCreate', async (message) => {
     if (!message.content.startsWith(config.prefix)) return  
     const args = message.content.slice(config.prefix.length).trim().split(/ +/g)
     const msgStr = args.shift().toLowerCase()
     
+    if (msgStr === "register") {
+        fs.readFile('./utils/users.json', 'utf8', (err, data) => {
+            if (err) throw new Error(err)
+            const users = JSON.parse(data)
+            
+            if (args[0] === "manual") {
+                users.push({
+                    name: args[1],
+                    avatar: message.author.avatarURL()
+                })
+            } else {
+                for (let i = 0; i < data.length; i++) {
+                    if (users[i].name === message.author.username) return message.channel.send("You have already been registered!")   
+                }
+
+                users.push({
+                    name: `${message.author.username}`,
+                    avatar: message.author.avatarURL()
+                })
+            }
+
+            fs.writeFileSync('./utils/users.json', JSON.stringify(users, null, 4), (err) => {
+                if (err) throw new Error(err)
+            })
+
+            return message.channel.send("User registered!")
+        })
+        
+    }
+
     if (msgStr === "listen") {
         serverListen(message.channelId, discordClient)
         message.channel.send("Started listening!")
     }
 })
-//test
+
 discordClient.login(config.token)

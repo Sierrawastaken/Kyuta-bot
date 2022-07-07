@@ -15,7 +15,7 @@ export async function serverListen(channelId, discordClient) {
 
     bedrockClient.on('text', (packet) => {
         if (packet.type === "chat" && packet.source_name != `bridgechat${random}`) {
-            chatMessage(packet.source_name, packet.message, "#fbceb1", true)
+            chatMessage(packet.source_name, packet.message, "#52c8db", true)
         } 
         if (packet.type === "translation") {
             if (!packet.message.startsWith("death")) {
