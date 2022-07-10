@@ -1,3 +1,5 @@
 node_modules/
+.TODO
 config.json
 commandlog.txt
+package-lock.json

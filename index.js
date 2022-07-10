@@ -1,7 +1,10 @@
 import discord from 'discord.js'
 import config from './config.json' assert { type: "json" }
-import { serverListen } from './name/serverConnect.js'
+import { serverListen } from './remoteUses/serverConnect.js'
 import fs from "fs"
+import { pingServer } from './remoteUses/ping.js'
+import bruh from './utils/users.json' assert { type: "json" }
+import { helpEmbed, serverHelp } from './utils/messageTemplates.js'
 
 let host, port, version
 
@@ -27,19 +30,21 @@ discordClient.on('messageCreate', async (message) => {
             if (err) throw new Error(err)
             const users = JSON.parse(data)
             
-            if (args[0] === "manual") {
+            if (args[0] === "manual" && message.member.roles.has(config.adminRoleId)) {
                 users.push({
-                    name: args[1],
-                    avatar: message.author.avatarURL()
+                    name: `${args[1]} - ${args[2]}`,
+                    avatar: args[3],
+                    colour: args[4]
                 })
             } else {
-                for (let i = 0; i < data.length; i++) {
-                    if (users[i].name === message.author.username) return message.channel.send("You have already been registered!")   
+                for (let i = 0; i < bruh.length; i++) {
+                    if (bruh[i].name === message.member.nickname) return message.channel.send("You have already been registered!")   
                 }
 
                 users.push({
-                    name: `${message.author.username}`,
-                    avatar: message.author.avatarURL()
+                    name: `${message.member.nickname} - ${message.author.username}`,
+                    avatar: message.author.avatarURL(),
+                    colour: message.member.roles.color.hexColor
                 })
             }
 
@@ -57,13 +62,31 @@ discordClient.on('messageCreate', async (message) => {
             host = args.shift()
             port = parseInt(args.shift())
             version = args.shift()
-            serverListen(message.channelId, discordClient, host, port, version)
-            message.channel.send("Started listening!")
-        } else {
+            serverListen(message.channelId, discordClient, host, port, version).catch((err) => {
+                return message.channel.send("An error has occured")
+            })
+            message.channel.send(`Started listening to ${host}:${port} on version ${version}`)
+        } /* else if (!args[0] && config.DynamicListening) {
+            let collector = new discord.MessageCollector(message.channel)
+            collector.addListener('messageCreate', (msg) => {
+                message.channel.send("please sen")
+            })
+        } */ else {
             serverListen(message.channelId, discordClient, config.host, config.port, config.version)
             message.channel.send(`Started listening to ${config.host}:${config.port} on version ${config.version}`)
         }
         
+    }
+
+    if (msgStr === "ping") {
+       let response = pingServer(args[0], parseInt(args[1]))
+       return message.channel.send({ embeds: [response] })
+    }
+
+    if (msgStr === "help") {
+        return helpEmbed(message.channel)
+    } if (msgStr === "listenhelp") {
+        return serverHelp(message.channel)
     }
 })
 
