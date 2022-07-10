@@ -1,7 +1,7 @@
 # Kyuta Bot - Minecraft ChatBridge
 
 <p align="center"> 
-    <img src="https://cdn.discordapp.com/attachments/967294984216797204/994828596013170698/unknown.png?size=4096">
+    <img src="https://cdn.discordapp.com/attachments/961825797281284137/995834807382704249/Overview.png?size=4096">
 </p>
 
 
@@ -15,7 +15,7 @@ After [installing the bot](https://github.com/Sierrawastaken/kyuta-bot#installat
     To iniate listening to a server run the command `k!listen` followed by the host, port, and version of the server you wish to connect to. A fully completed command will look like this: `k!listen 127.0.0.1 19132 1.17.40` . No commas need to be added inbetween paramaters.
     
     <p align="center"> 
-        <img src="https://cdn.discordapp.com/attachments/967294984216797204/994855342984933446/unknown.png?size=4096">
+        <img src="https://cdn.discordapp.com/attachments/961825797281284137/995835228394360832/unknown.png?size=4096">
     </p>
 
     Once listening to a server Kyuta will bridge all messages inbetween the discord channel and Mincraft. Using the prefix `%runraw%` before any minecraft command will run it ingame just as normal, for example sending the message `%runraw%summon creeper 1 20 1`, will summon a creeper at 1, 20, 1. (This works well in tandem with [TrapDoor](https://github.com/hhhxiao/TrapDoor) to be able to see farm rates / server performance without having to be ingame!)
@@ -28,12 +28,13 @@ After [installing the bot](https://github.com/Sierrawastaken/kyuta-bot#installat
 
     The Register command is an optional command that will register information on the user running the command to an internal database to personalize their webhooks. To use the command properly nickname yourself as your ingame name and run the command. Your nickname, username, highest role colour, and your profile picture will be stored to customize your webhooks and help people know who is who. These two pictures below demonstate this, the first is without registration and the second is with registration
 
-    <p align="center"> 
-        <img src="https://cdn.discordapp.com/attachments/967294984216797204/994854298787774494/WithoutRegistraion.png?size=4096">
+
+     <p align="center"> 
+        <img src="https://cdn.discordapp.com/attachments/961825797281284137/995834826403876864/WithoutRegistration.png?size=4096">
     </p>
 
     <p align="center"> 
-        <img src="https://cdn.discordapp.com/attachments/967294984216797204/994854304173269062/WithRegistration.png?size=4096">
+        <img src="https://cdn.discordapp.com/attachments/961825797281284137/995834840500949052/WithRegistration.png?size=4096">
     </p>
     
     As you can see the webhook will change to be more personalized with the registration. Server Admins can also manually register user with the following syntax: `k!register manual nickname avatarURL hexcolour`
@@ -43,29 +44,29 @@ Once you gave finished the setup you are ready to work! Here are a few extra tid
 * Sadly there are no ways currently to send an image ingame so this will have to suffice
 
     <p align="center"> 
-        <img src="https://cdn.discordapp.com/attachments/967294984216797204/994856293410025472/unknown.png?size=4096">
+        <img src="https://cdn.discordapp.com/attachments/961825797281284137/995836526950879342/unknown.png?size=4096">
     </p>
 
 * Replying is just translated like this so no one gets confused about who is speaking to who
 
     <p align="center"> 
-        <img src="https://cdn.discordapp.com/attachments/967294984216797204/994856675255259146/unknown.png?size=4096">
+        <img src="https://cdn.discordapp.com/attachments/961825797281284137/995836502456143932/unknown.png?size=4096">
     </p>
 
 * Markdowns are translated both to discord and from discord, unfortunately underlining and strikethrough dont work minecraft side cause of [this annoying bug](https://bugs.mojang.com/browse/MCPE-41729). (Please upvote!)
     
     <p align="center"> 
-        <img src="https://cdn.discordapp.com/attachments/967294984216797204/994857571003404410/unknown.png?size=4096">
+        <img src="https://cdn.discordapp.com/attachments/961825797281284137/995836395799195709/unknown.png?size=4096">
     </p>
 
     <p align="center"> 
-        <img src="https://cdn.discordapp.com/attachments/967294984216797204/994857639760642068/unknown.png?size=4096">
+        <img src="https://cdn.discordapp.com/attachments/961825797281284137/995836262588088402/unknown.png?size=4096">
     </p>
 
 * Other basic features such as leaving, joining, and dying are all displayed aswell - commands are logged internally or can be output if  `"sendCommands"` is set to true.
 
     <p align="center"> 
-        <img src="https://cdn.discordapp.com/attachments/967294984216797204/994858512616276009/unknown.png?size=4096">
+        <img src="https://cdn.discordapp.com/attachments/961825797281284137/995837599644135575/unknown.png?size=4096">
     </p>
 
 # Installation

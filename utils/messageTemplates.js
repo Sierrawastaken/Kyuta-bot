@@ -61,8 +61,8 @@ export function commandOutput(pMessage) {
     let filler, completedArray, parsedMessage, command
     if (!config.TapdoorInjected) {
         
-       let filer = pMessage.toJSON()
-        console.log(filler)
+       //let filer = pMessage.toJSON()
+        //console.log(filler)
         
         /*
         console.log(pMessage)
@@ -86,9 +86,9 @@ export function commandOutput(pMessage) {
 
         let message = new webhook.MessageBuilder()
         .setName("Server")
-        .setTitle(`Command ran by ${completedArray[0]}:`)
+        .setTitle(`Command ran by {completedArray[0]}:`)
         .setColor("#bd4f0d")
-        .setDescription(command)
+        .setDescription("command")
         .setFooter(` - ${now}`, config.botAv)
 
         return Hook.send(message)
