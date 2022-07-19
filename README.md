@@ -1,11 +1,11 @@
 # Kyuta Bot - Minecraft ChatBridge
 
-<p align="center"> 
+<p align="center">
     <img src="https://cdn.discordapp.com/attachments/961825797281284137/995834807382704249/Overview.png?size=4096">
 </p>
 
 
-Kyuta is discord chat-bridge integration for minecraft based on the [bedrock-protocol](https://github.com/PrismarineJS/bedrock-protocol) library and functions similarly to [! Pixel](https://github.com/0x506978656c)'s BDScord. Simply put we are attaching a dummy client to the selected multiplayer server and using that dummy account to intercept incoming and outgoing packets to read them and transmit their data. While application such as BDScord have more server modding capibilities, Kyuta can be used on any server desipte whether you have access to server files or not.
+Kyuta is discord chat-bridge integration for minecraft based on the [bedrock-protocol](https://github.com/PrismarineJS/bedrock-protocol) library and functions similarly to [! Pixel](https://github.com/0x506978656c)'s BDScord. Simply put we are attaching a dummy client to the selected multiplayer server and using that dummy account to intercept incoming and outgoing packets to read them and transmit their data. While application such as BDScord have more server modding capibilities, Kyuta can be used on any server despite whether you have access to server files or not.
 
 
 # Commands - Usage
@@ -14,7 +14,7 @@ After [installing the bot](https://github.com/Sierrawastaken/kyuta-bot#installat
     
     To iniate listening to a server run the command `k!listen` followed by the host, port, and version of the server you wish to connect to. A fully completed command will look like this: `k!listen 127.0.0.1 19132 1.17.40` . No commas need to be added inbetween paramaters.
     
-    <p align="center"> 
+    <p align="center">
         <img src="https://cdn.discordapp.com/attachments/961825797281284137/995835228394360832/unknown.png?size=4096">
     </p>
 
@@ -29,11 +29,11 @@ After [installing the bot](https://github.com/Sierrawastaken/kyuta-bot#installat
     The Register command is an optional command that will register information on the user running the command to an internal database to personalize their webhooks. To use the command properly nickname yourself as your ingame name and run the command. Your nickname, username, highest role colour, and your profile picture will be stored to customize your webhooks and help people know who is who. These two pictures below demonstate this, the first is without registration and the second is with registration
 
 
-     <p align="center"> 
+     <p align="center">
         <img src="https://cdn.discordapp.com/attachments/961825797281284137/995834826403876864/WithoutRegistration.png?size=4096">
     </p>
 
-    <p align="center"> 
+    <p align="center">
         <img src="https://cdn.discordapp.com/attachments/961825797281284137/995834840500949052/WithRegistration.png?size=4096">
     </p>
     
@@ -43,29 +43,29 @@ Once you gave finished the setup you are ready to work! Here are a few extra tid
 
 * Sadly there are no ways currently to send an image ingame so this will have to suffice
 
-    <p align="center"> 
+    <p align="center">
         <img src="https://cdn.discordapp.com/attachments/961825797281284137/995836526950879342/unknown.png?size=4096">
     </p>
 
 * Replying is just translated like this so no one gets confused about who is speaking to who
 
-    <p align="center"> 
+    <p align="center">
         <img src="https://cdn.discordapp.com/attachments/961825797281284137/995836502456143932/unknown.png?size=4096">
     </p>
 
-* Markdowns are translated both to discord and from discord, unfortunately underlining and strikethrough dont work minecraft side cause of [this annoying bug](https://bugs.mojang.com/browse/MCPE-41729). (Please upvote!)
+* Markdowns are translated both to discord and from discord, unfortunately underlining and strikethrough markdowns dont work on the minecraft side of the bridge because of [this annoying bug](https://bugs.mojang.com/browse/MCPE-41729). (Please upvote!)
     
-    <p align="center"> 
+    <p align="center">
         <img src="https://cdn.discordapp.com/attachments/961825797281284137/995836395799195709/unknown.png?size=4096">
     </p>
 
-    <p align="center"> 
+    <p align="center">
         <img src="https://cdn.discordapp.com/attachments/961825797281284137/995836262588088402/unknown.png?size=4096">
     </p>
 
-* Other basic features such as leaving, joining, and dying are all displayed aswell - commands are logged internally or can be output if  `"sendCommands"` is set to true.
+* Other basic features such as leaving, joining, and dying are all displayed aswell - commands are logged internally or can be output to the discord if  `"sendCommands"` is set to true.
 
-    <p align="center"> 
+    <p align="center">
         <img src="https://cdn.discordapp.com/attachments/961825797281284137/995837599644135575/unknown.png?size=4096">
     </p>
 
@@ -92,9 +92,6 @@ To start the instalation setup download the latest [release](https://github.com/
         // if set to true commands run will be output to the discord
         // through the webhook
         "sendCommands": true,
-
-        // Set to true if you have TrapDoor injected - it changes command parsing
-        "TapdoorInjected": false,
 
         // this will be used if DynamicListening is set to false
         // or if you enter no paramaters

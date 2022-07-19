@@ -1,9 +1,9 @@
 {
     "name": "kyuta",
-    "version": "0.2.4",
-    "description": "nothing",
+    "version": "0.0.0",
+    "description": "yes",
     "author": "Sierra#7079",
-    "license": "MIT",
+    "license": "Apache-2.0",
     "main": "index.js",
     "type": "module",
     "scripts": {

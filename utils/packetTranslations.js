@@ -1,4 +1,4 @@
-export const deathPackets =  {
+export const deathTranslations =  {
     'death.attack.anvil': `%1% was squashed by a falling anvil`,
     'death.attack.arrow': `%1% was shot by %2%`,
     'death.attack.bullet': `%1% was sniped by %2%`,
@@ -33,8 +33,8 @@ export const deathPackets =  {
     'death.attack.stalagmite': `%1% was impaled on a stalagmite`,
     'death.fell.accident.generic': `%1% fell from a high place`,
 }
-/*
-export const commandPackets =  {
+
+export const commandTranslations =  {
     'commands.ability.description': `Sets a player's ability.`,
     'commands.ability.noability': `No ability called '%1$s' is available`,
     'commands.ability.granted': `The '%1$s' ability has been granted to you`,
@@ -234,15 +234,15 @@ export const commandPackets =  {
     'commands.entitydata.tagError': `Data tag parsing failed: %1$s`,
     'commands.event.description': `Triggers an event for the specified object(s)`,
     'commands.event.error.empty': `Event name cannot be empty`,
-    'commands.event.error.failed': `%1$s could not be executed on: %2$s`,					// 1': `Event Name ##2': `List of failed entities for which the event could not be executed
-    'commands.event.success': `%1$s successfully executed on: %2$s`,						    // ': `Event Name ##2': `List of entities
+    'commands.event.error.failed': `%1$s could not be executed on: %2$s`,					// 1': `Event Name //2': `List of failed entities for which the event could not be executed
+    'commands.event.success': `%1$s successfully executed on: %2$s`,						    // ': `Event Name //2': `List of entities
     'commands.execute.allInvocationsFailed': `All invocations failed: %1$s`,
     'commands.execute.failed': `Failed to execute %1$s as %2$s`,
     'commands.execute.description': `Executes a command on behalf of one or more entities`,
     'commands.execute.outRangedDetectPosition': `Detect position: %1$s %2$s %3$s is out of range.`,
-    'commands.execute.falseCondition': `Execute subcommand %1$s %2$s resolved FALSE.`,	//1': `Subcommand ##2': `ConditionSubcommand
-    'commands.execute.ifUnlessBlocks.tooManyBlocks': `Checking too many blocks. Max block count': %1$s. Current block count: %2$s.`,	//1': `Max number of blocks that are checked ##2': `Current number of blocks that are checked
-    'commands.execute.ifUnlessScore.score.notFound': `No %1$s score for %2$s found`,	//1': `Objective Name ##2': `Player Name
+    'commands.execute.falseCondition': `Execute subcommand %1$s %2$s resolved FALSE.`,	//1': `Subcommand //2': `ConditionSubcommand
+    'commands.execute.ifUnlessBlocks.tooManyBlocks': `Checking too many blocks. Max block count': %1$s. Current block count: %2$s.`,	//1': `Max number of blocks that are checked //2': `Current number of blocks that are checked
+    'commands.execute.ifUnlessScore.score.notFound': `No %1$s score for %2$s found`,	//1': `Objective Name //2': `Player Name
     'commands.execute.ifUnlessScore.targets.tooMany': `%1$s targets matched the selector. Only 1 target is allowed.`,	// Number of targets that are matching with selector
     'commands.execute.ifUnlessScore.targets.empty': `There is no tracked player %1$s on the scoreboard`,	//1': `Player name
     'commands.execute.ifUnlessScore.objectiveNotFound': `No objective was found by the name %1$s`,	//1': `Objective Name
@@ -404,106 +404,106 @@ export const commandPackets =  {
 
     //for the following new loc strings, the first parameter is a localized event name, and the second is the literal event that must be entered into the command.
     
-    'commands.mobevent.eventSetToTrue': `Mob Event %s (id': `%s) set to true.
-    'commands.mobevent.eventSetToTrueButEventsDisabled': `Mob Event %s (id': `%s) set to true, but Mob Events are disabled.
-    'commands.mobevent.eventSetToFalse': `Mob Event %s (id': `%s) set to false.
-    'commands.mobevent.eventIsTrue': `Mob Event %s (id': `%s) is set to true.
-    'commands.mobevent.eventIsTrueButEventsDisabled': `Mob Event %s (id': `%s) is set to true, but Mob Events are disabled.
-    'commands.mobevent.eventIsFalse': `Mob Event %s (id': `%s) is set to false.
+    'commands.mobevent.eventSetToTrue': `Mob Event %s (id: %s) set to true.`,
+    'commands.mobevent.eventSetToTrueButEventsDisabled': `Mob Event %s (id': %s) set to true, but Mob Events are disabled.`,
+    'commands.mobevent.eventSetToFalse': `Mob Event %s (id': %s) set to false.`,
+    'commands.mobevent.eventIsTrue': `Mob Event %s (id': %s) is set to true.`,
+    'commands.mobevent.eventIsTrueButEventsDisabled': `Mob Event %s (id': %s) is set to true, but Mob Events are disabled.`,
+    'commands.mobevent.eventIsFalse': `Mob Event %s (id': %s) is set to false.`,
 
-    'commands.music.description': `Allows you to control playing music tracks.
-    'commands.music.failure.emptyTrackName': `You must provide a non-empty track name.
-    'commands.music.success.queueAction': `%s has been queued and it will start playing when the current track stops.
-    'commands.music.success.playAction': `%s has been queued to start playing.
-    'commands.music.success.stopAction': `Custom music will stop now.
-    'commands.music.success.volumeAction': `Music volume will be updated to %d.
-    'commands.op.description': `Grants operator status to a player.
-    'commands.op.failed': `Could not op (already op or higher)': `%s
-    'commands.op.success': `Opped': `%s
-    'commands.op.message': `You have been opped
-    'commands.operator.invalid': `Invalid operation %1$s.
-    'commands.origin.commandblock': `CommandBlock
-    'commands.origin.external': `External
-    'commands.origin.devconsole': `DevConsole
-    'commands.origin.script': `Script Engine
-    'commands.origin.server': `Server
-    'commands.origin.teacher': `Teacher
-    'commands.ops.description': `Reloads and applies Op permissions.
-    'commands.ops.reloaded': `Ops reloaded from file.
-    'commands.ops.set.success': `Succeeded in setting operator level for player %s.
-    'commands.permissions.description': `Reloads and applies permissions.
-    'command.permissions.list.fail.filenotfound': `Failed to list permissions from file, file not found.
-    'commands.permissions.reloaded': `Permissions reloaded from file.
-    'command.permissions.reload.fail.filenotfound': `Failed to reload permissions from file, file not found.
-    'commands.permissions.set.failed': `Could not set permission level %s for player %s.
-    'commands.permissions.set.success': `Succeeded in setting permission level %s for player %s.
-    'commands.permissions.save.failed': `Could not save permission level %s for player %s.
-    'commands.permissions.save.success': `Succeeded in saving permission level %s for player %s.
-    'commands.spawnParticleEmitter.description': `Creates a particle emitter
-    'commands.spawnParticleEmitter.success': `Request to create %1$s sent to all players.
-    'commands.particle.description': `Creates particles.
-    'commands.particle.notFound': `Unknown effect name (%1$s)
-    'commands.particle.success': `Playing effect %1$s for %2$d times
-    'commands.playanimation.description': `Makes one or more entities play a one-off animation. Assumes all variables are setup correctly.
-    'commands.playanimation.success': `Animation request sent to clients for processing.
-    'commands.players.list': `There are %1$d/%2$d players online':
-    'commands.players.list.names': `%s
-    'commands.playsound.description': `Plays a sound.
-    'commands.playsound.playerTooFar': `Player %1$s is too far away to hear the sound
-    'commands.playsound.success': `Played sound '%1$s' to %2$s
-    'commands.position.description': `Toggles on/off coordinates for player.
-    'commands.publish.failed': `Unable to host local game
-    'commands.publish.started': `Local game hosted on port %1$s
-    'commands.querytarget.description': `Gets transform, name, and id information about the given target entity or entities.
-    'commands.querytarget.success': `Target data': `%1$s
-    'commands.reload.description': `Reloads all function and script files from all behavior packs.
-    'commands.reload.success': `Function and script files have been reloaded.
-    'commands.replaceitem.description': `Replaces items in inventories.
-    'commands.replaceitem.failed': `Could not replace %s slot %d with %d * %s
-    'commands.replaceitem.keepFailed': `There is already an item occupying %s slot %d.
-    'commands.replaceitem.noContainer': `Block at %s is not a container
-    'commands.replaceitem.badSlotNumber': `Could not replace slot %d, must be a value between %d and %d.
-    'commands.replaceitem.success': `Replaced %s slot %d with %d * %s
-    'commands.replaceitem.success.entity': `Replaced %s slot %d of %s with %d * %s
-    'commands.replaceitem.tagError': `Data tag parsing failed': `%1$s
-    'commands.ride.description': `Makes entities ride other entities, stops entities from riding, makes rides evict their riders, or summons rides or riders.
-    'commands.ride.evictRiders.success': `Rides that have successfully evicted their riders': `%1$s
-    'commands.ride.startRiding.failure': `Riders that did not meet ride conditions': `%1$s
-    'commands.ride.startRiding.groupDoesntFit': `The group of riders does not fit on the ride.
-    'commands.ride.startRiding.notRideable': `The selected entity is not rideable.
-    'commands.ride.startRiding.rideFull': `This ride is already full.
-    'commands.ride.startRiding.rideFullRidersLeft': `The ride is full, so some riders were not added.
-    'commands.ride.startRiding.success': `Riders successfully added to ride': `%1$s
-    'commands.ride.startRiding.tooManyRiders': `Too many riders were specified. Only one is allowed at a time for teleport_ride.
-    'commands.ride.startRiding.tooManyRides': `Too many rides were specified. Only one is allowed at a time.
-    'commands.ride.stopRiding.success': `Riders that have successfully stopped riding': `%1$s
-    'commands.ride.summonRide.failed': `Rides were summoned, but these riders could not be added to them': `%1$s
-    'commands.ride.summonRide.notRideable': `Entity was summoned, but it is not rideable.
-    'commands.ride.summonRide.success': `Ride successfully summoned for these riders': `%1$s
-    'commands.ride.summonRider.failed': `Riders were summoned, but could not be added to rides': `%1$s
-    'commands.ride.summonRider.fullRides': `Riders could not ride these rides because they are full': `%1$s
-    'commands.ride.summonRider.ridesWithNoRideableComp': `The following entities are not rideable': `%1$s
-    'commands.ride.summonRider.success': `Riders successfully summoned for rides': `%1$s
-    'commands.save.description': `Control or check how the game saves data to disk.
-    'commands.save.disabled': `Turned off world auto-saving
-    'commands.save.enabled': `Turned on world auto-saving
-    'commands.save.failed': `Saving failed': `%1$s
-    'commands.save.start': `Saving...
-    'commands.save.success': `Saved the world
-    'commands.save-all.error': `An error occurred when trying to pause the world storage.
-    'commands.save-all.success': `Data saved. Files are now ready to be copied.
-    'commands.save-off.alreadyOff': `Saving is already turned off.
-    'commands.save-on.alreadyOn': `Saving is already turned on.
-    'commands.save-on.notDone': `A previous save has not been completed.
-    'commands.save-on.description': `Enables automatic server saves.
-    'commands.save-on.success': `Changes to the world are resumed.
-    'commands.save-state.description': `Checks if a previous save-all has finished and lists the files involved.
-    'commands.say.description': `Sends a message in the chat to other players.
-    'commands.schedule.delay.functionQueued': `Scheduled function %1$s in %2$d ticks at gametime %3$d.
-    'commands.schedule.delay.negativeTime': `Time cannot be negative.
-    'commands.schedule.description': `Schedules an action to be executed once an area is loaded, or after a certain amount of time.
-    'commands.schedule.functionQueued': `Function has been queued and it will be executed when the specified area is fully loaded.
-    'commands.schedule.functionRan': `Successfully executed %1$d function entries in function %2$s.
+    'commands.music.description': `Allows you to control playing music tracks.`,
+    'commands.music.failure.emptyTrackName': `You must provide a non-empty track name.`,
+    'commands.music.success.queueAction': `%s has been queued and it will start playing when the current track stops.`,
+    'commands.music.success.playAction': `%s has been queued to start playing.`,
+    'commands.music.success.stopAction': `Custom music will stop now.`,
+    'commands.music.success.volumeAction': `Music volume will be updated to %d.`,
+    'commands.op.description': `Grants operator status to a player.`,
+    'commands.op.failed': `Could not op (already op or higher)': %s`,
+    'commands.op.success': `Opped': %s`,
+    'commands.op.message': `You have been opped`,
+    'commands.operator.invalid': `Invalid operation %1$s.`,
+    'commands.origin.commandblock': `CommandBlock`,
+    'commands.origin.external': `External`,
+    'commands.origin.devconsole': `DevConsole`,
+    'commands.origin.script': `Script Engine`,
+    'commands.origin.server': `Server`,
+    'commands.origin.teacher': `Teacher`,
+    'commands.ops.description': `Reloads and applies Op permissions.`,
+    'commands.ops.reloaded': `Ops reloaded from file.`,
+    'commands.ops.set.success': `Succeeded in setting operator level for player %s.`,
+    'commands.permissions.description': `Reloads and applies permissions.`,
+    'command.permissions.list.fail.filenotfound': `Failed to list permissions from file, file not found.`,
+    'commands.permissions.reloaded': `Permissions reloaded from file.`,
+    'command.permissions.reload.fail.filenotfound': `Failed to reload permissions from file, file not found.`,
+    'commands.permissions.set.failed': `Could not set permission level %s for player %s.`,
+    'commands.permissions.set.success': `Succeeded in setting permission level %s for player %s.`,
+    'commands.permissions.save.failed': `Could not save permission level %s for player %s.`,
+    'commands.permissions.save.success': `Succeeded in saving permission level %s for player %s.`,
+    'commands.spawnParticleEmitter.description': `Creates a particle emitter`,
+    'commands.spawnParticleEmitter.success': `Request to create %1$s sent to all players.`,
+    'commands.particle.description': `Creates particles.`,
+    'commands.particle.notFound': `Unknown effect name (%1$s)`,
+    'commands.particle.success': `Playing effect %1$s for %2$d times`,
+    'commands.playanimation.description': `Makes one or more entities play a one-off animation. Assumes all variables are setup correctly.`,
+    'commands.playanimation.success': `Animation request sent to clients for processing.`,
+    'commands.players.list': `There are %1$d/%2$d players online':`,
+    'commands.players.list.names': `%s`,
+    'commands.playsound.description': `Plays a sound.`,
+    'commands.playsound.playerTooFar': `Player %1$s is too far away to hear the sound`,
+    'commands.playsound.success': `Played sound '%1$s' to %2$s`,
+    'commands.position.description': `Toggles on/off coordinates for player.`,
+    'commands.publish.failed': `Unable to host local game`,
+    'commands.publish.started': `Local game hosted on port %1$s`,
+    'commands.querytarget.description': `Gets transform, name, and id information about the given target entity or entities.`,
+    'commands.querytarget.success': `Target data': %1$s`,
+    'commands.reload.description': `Reloads all function and script files from all behavior packs.`,
+    'commands.reload.success': `Function and script files have been reloaded.`,
+    'commands.replaceitem.description': `Replaces items in inventories.`,
+    'commands.replaceitem.failed': `Could not replace %s slot %d with %d * %s`,
+    'commands.replaceitem.keepFailed': `There is already an item occupying %s slot %d.`,
+    'commands.replaceitem.noContainer': `Block at %s is not a container`,
+    'commands.replaceitem.badSlotNumber': `Could not replace slot %d, must be a value between %d and %d.`,
+    'commands.replaceitem.success': `Replaced %s slot %d with %d * %s`,
+    'commands.replaceitem.success.entity': `Replaced %s slot %d of %s with %d * %s`,
+    'commands.replaceitem.tagError': `Data tag parsing failed': %1$s`,
+    'commands.ride.description': `Makes entities ride other entities, stops entities from riding, makes rides evict their riders, or summons rides or riders.`,
+    'commands.ride.evictRiders.success': `Rides that have successfully evicted their riders': %1$s`,
+    'commands.ride.startRiding.failure': `Riders that did not meet ride conditions': %1$s`,
+    'commands.ride.startRiding.groupDoesntFit': `The group of riders does not fit on the ride.`,
+    'commands.ride.startRiding.notRideable': `The selected entity is not rideable.`,
+    'commands.ride.startRiding.rideFull': `This ride is already full.`,
+    'commands.ride.startRiding.rideFullRidersLeft': `The ride is full, so some riders were not added.`,
+    'commands.ride.startRiding.success': `Riders successfully added to ride': %1$s`,
+    'commands.ride.startRiding.tooManyRiders': `Too many riders were specified. Only one is allowed at a time for teleport_ride.`,
+    'commands.ride.startRiding.tooManyRides': `Too many rides were specified. Only one is allowed at a time.`,
+    'commands.ride.stopRiding.success': `Riders that have successfully stopped riding': %1$s`,
+    'commands.ride.summonRide.failed': `Rides were summoned, but these riders could not be added to them': %1$s`,
+    'commands.ride.summonRide.notRideable': `Entity was summoned, but it is not rideable.`,
+    'commands.ride.summonRide.success': `Ride successfully summoned for these riders': %1$s`,
+    'commands.ride.summonRider.failed': `Riders were summoned, but could not be added to rides': %1$s`,
+    'commands.ride.summonRider.fullRides': `Riders could not ride these rides because they are full': %1$s`,
+    'commands.ride.summonRider.ridesWithNoRideableComp': `The following entities are not rideable': %1$s`,
+    'commands.ride.summonRider.success': `Riders successfully summoned for rides': %1$s`,
+    'commands.save.description': `Control or check how the game saves data to disk.`,
+    'commands.save.disabled': `Turned off world auto-saving`,
+    'commands.save.enabled': `Turned on world auto-saving`,
+    'commands.save.failed': `Saving failed': %1$s`,
+    'commands.save.start': `Saving...`,
+    'commands.save.success': `Saved the world`,
+    'commands.save-all.error': `An error occurred when trying to pause the world storage.`,
+    'commands.save-all.success': `Data saved. Files are now ready to be copied.`,
+    'commands.save-off.alreadyOff': `Saving is already turned off.`,
+    'commands.save-on.alreadyOn': `Saving is already turned on.`,
+    'commands.save-on.notDone': `A previous save has not been completed.`,
+    'commands.save-on.description': `Enables automatic server saves.`,
+    'commands.save-on.success': `Changes to the world are resumed.`,
+    'commands.save-state.description': `Checks if a previous save-all has finished and lists the files involved.`,
+    'commands.say.description': `Sends a message in the chat to other players.`,
+    'commands.schedule.delay.functionQueued': `Scheduled function %1$s in %2$d ticks at gametime %3$d.`,
+    'commands.schedule.delay.negativeTime': `Time cannot be negative.`,
+    'commands.schedule.description': `Schedules an action to be executed once an area is loaded, or after a certain amount of time.`,
+    'commands.schedule.functionQueued': `Function has been queued and it will be executed when the specified area is fully loaded.`,
+    'commands.schedule.functionRan': `Successfully executed %1$d function entries in function %2$s.`,
     'commands.schedule.invalidOrigin': `The origin needed to execute this function was invalid.`,
     'commands.schedule.name.empty': `Ticking area name cannot be empty`,
     'commands.schedule.too.many.areas': `More than one ticking areas were found with the name %s. Please use a single area.`,
@@ -515,315 +515,426 @@ export const commandPackets =  {
 
     // Going overboard on the context but Scoreboards do some weird stuff :D						
 
-    'commands.scoreboard.description': `Tracks and displays scores for various objectives.						##
-    'commands.scoreboard.allMatchesFailed': `All matches failed												##
-    'commands.scoreboard.noMultiWildcard': `Only one user wildcard allowed									##
-    'commands.scoreboard.objectiveNotFound': `No objective was found by the name '%1$s'						##1': `Objective Name
-    'commands.scoreboard.objectiveReadOnly': `The objective '%1$s' is read-only and cannot be set			##1': `Objective Name
-    'commands.scoreboard.objectives.add.alreadyExists': `An objective with the name '%1$s' already exists	##1': `Objective Name
-    'commands.scoreboard.objectives.add.displayTooLong': `The display name '%1$s' is too long for an objective, it can be at most %2$d characters long	##1': `Objective Display Name ##2': `Name Length Limit
-    'commands.scoreboard.objectives.add.success': `Added new objective '%1$s' successfully																##1': `Objective Name
-    'commands.scoreboard.objectives.add.tooLong': `The name '%1$s' is too long for an objective, it can be at most %2$d characters long					##1': `Objective Name ##2': `Name Length Limit
-    'commands.scoreboard.objectives.add.wrongType': `Invalid objective criteria type '%1$s'						##1': `Criteria Name
-    'commands.scoreboard.objectives.add.needName': `An objective needs a name.									##
-    'commands.scoreboard.objectives.description': `Modify scoreboard objectives.								##
-    'commands.scoreboard.objectives.list.count': `Showing %1$d objective(s) on scoreboard':	`					##1': `Number of Objectives
-    'commands.scoreboard.objectives.list.empty': `There are no objectives on the scoreboard						##
-    'commands.scoreboard.objectives.list.entry': `- %1$s': `displays as '%2$s' and is type '%3$s'					##1': `Objective Name ##2': `Objective Display Name ##3': `Criteria Name
-    'commands.scoreboard.objectives.remove.success': `Removed objective '%1$s' successfully						##1': `Objective Name
-    'commands.scoreboard.objectives.setdisplay.invalidSlot': `No such display slot '%1$s'						##1': `Display Slot
-    'commands.scoreboard.objectives.setdisplay.successCleared': `Cleared objective display slot '%1$s'			##1': `Display Slot
-    'commands.scoreboard.objectives.setdisplay.successSet': `Set the display objective in slot '%1$s' to '%2$s'	##1': `Display Slot ##2': `Objective Name
-    'commands.scoreboard.players.add.success': `Added %1$d to [%2$s] for %3$s (now %4$d)						##1': `Score Value ##2': `Objective Name ##3': `Player Name ##4': `New Score Value
-    'commands.scoreboard.players.add.multiple.success': `Added %1$d to [%2$s] for %3$d entities					##1': `Score Value ##2': `Objective Name ##3': `Player Count
-    'commands.scoreboard.players.nameNotFound': `A player name must be given.									##
-    'commands.scoreboard.players.enable.noTrigger': `Objective %1$s is not a trigger							##1': `Objective Name
-    'commands.scoreboard.players.enable.success': `Enabled trigger %1$s for %2$s								##1': `Trigger Name ##2': `Objective Name
-    'commands.scoreboard.players.list.count': `Showing %1$d tracked players on the scoreboard':	`				##1': `Number of Players
-    'commands.scoreboard.players.list.empty': `There are no tracked players on the scoreboard					##
-    'commands.scoreboard.players.list.player.count': `Showing %1$d tracked objective(s) for %2$s':	`			##1': `Objective Count ##2': `Player Name
-    'commands.scoreboard.players.list.player.empty': `Player %1$s has no scores recorded						##1': `Player Name
-    'commands.scoreboard.players.list.player.entry': `- %2$s': `%1$d (%3$s)										##1': `Score Value ##2': `Objective Display Name ##3': `Objective Name
-    'commands.scoreboard.players.operation.invalidOperation': `Invalid operation %1$s							##
-    'commands.scoreboard.players.operation.notFound': `No %1$s score for %2$s found								##1': `Objective Name ##2': `Player Name
-    'commands.scoreboard.players.operation.success': `Updated [%1$s] for %2$d entities							##1': `Objective Name ##2': `Player Count
-    'commands.scoreboard.players.offlinePlayerName': `Player Offline
-    'commands.scoreboard.players.random.invalidRange': `Min %1$d is not less than max %2$d						##1': `Min Range Value ##2': `Max Range Value
-    'commands.scoreboard.players.remove.success': `Removed %1$d from [%2$s] for %3$s (now %4$d)					##1': `Score Value ##2': `Objective Name ##3': `Player Name ##4': `New Score Value
-    'commands.scoreboard.players.remove.multiple.success': `Removed %1$d from [%2$s] for %3$d entities			##1': `Score Value ##2': `Objective Name ##3': `Player Count
-    'commands.scoreboard.players.reset.success': `Reset scores of player %1$s									##1': `Player Name
-    'commands.scoreboard.players.resetscore.success': `Reset score %1$s of player %2$s							##1': `Objective Name ##2': `Player Name
-    'commands.scoreboard.players.set.success': `Set [%1$s] for %2$s to %3$d										##1': `Objective Name ##2': `Player Name ##3': `Score Value
-    'commands.scoreboard.players.set.multiple.success': `Set [%1$s] for %2$d entities to %3$d					##1': `Objective Name ##2': `Player Count ##3': `Score Value
-    'commands.scoreboard.players.set.tagError': `Could not parse dataTag, reason': `%1$s							##
-    'commands.scoreboard.players.set.tagMismatch': `The dataTag does not match for %1$s							##
-    'commands.scoreboard.players.score.notFound': `No %1$s score for %2$s found									##1': `Objective Name ##2': `Player Name
-    'commands.scoreboard.players.test.failed': `Score %1$d is NOT in range %2$d to %3$d							##1': `Value ##2': `Min Range Value ##3': `Max Range Value
-    'commands.scoreboard.players.test.success': `Score %1$d is in range %2$d to %3$d							##1': `Value ##2': `Min Range Value ##3': `Max Range Value
-    'commands.scoreboard.players.get.success': `%1$d															##
+    'commands.scoreboard.description': `Tracks and displays scores for various objectives.`,
+    'commands.scoreboard.allMatchesFailed': `All matches failed`,
+    'commands.scoreboard.noMultiWildcard': `Only one user wildcard allowed`,
+    'commands.scoreboard.objectiveNotFound': `No objective was found by the name %1$s`,						//1': `Objective Name
+    'commands.scoreboard.objectiveReadOnly': `The objective %1$s is read-only and cannot be set`,			//1': `Objective Name
+    'commands.scoreboard.objectives.add.alreadyExists': `An objective with the name '%1$s' already exists`,	//1': `Objective Name
+    'commands.scoreboard.objectives.add.displayTooLong': `The display name '%1$s' is too long for an objective, it can be at most %2$d characters long`,//1': `Objective Display Name //2': `Name Length Limit
+    'commands.scoreboard.objectives.add.success': `Added new objective '%1$s' successfully`,																//1': `Objective Name
+    'commands.scoreboard.objectives.add.tooLong': `The name '%1$s' is too long for an objective, it can be at most %2$d characters long`,					//1': `Objective Name //2': `Name Length Limit
+    'commands.scoreboard.objectives.add.wrongType': `Invalid objective criteria type %1$s`,						//1': `Criteria Name
+    'commands.scoreboard.objectives.add.needName': `An objective needs a name.`,									//
+    'commands.scoreboard.objectives.description': `Modify scoreboard objectives.`,								//
+    'commands.scoreboard.objectives.list.count': `Showing %1$d objective(s) on scoreboard':`,					//1': `Number of Objectives
+    'commands.scoreboard.objectives.list.empty': `There are no objectives on the scoreboard`,					//
+    'commands.scoreboard.objectives.list.entry': `- %1$s: displays as %2$s and is type %3$s`,				    //1': `Objective Name //2': `Objective Display Name //3': `Criteria Name
+    'commands.scoreboard.objectives.remove.success': `Removed objective '%1$s' successfully`,					//1': `Objective Name
+    'commands.scoreboard.objectives.setdisplay.invalidSlot': `No such display slot %1$s`,						//1': `Display Slot
+    'commands.scoreboard.objectives.setdisplay.successCleared': `Cleared objective display slot '%1$s'`,			//1': `Display Slot
+    'commands.scoreboard.objectives.setdisplay.successSet': `Set the display objective in slot '%1$s' to '%2$s'`,	//1': `Display Slot //2': `Objective Name
+    'commands.scoreboard.players.add.success': `Added %1$d to [%2$s] for %3$s (now %4$d)`,						//1': `Score Value //2': `Objective Name //3': `Player Name //4': `New Score Value
+    'commands.scoreboard.players.add.multiple.success': `Added %1$d to [%2$s] for %3$d entities`,				//1': `Score Value //2': `Objective Name //3': `Player Count
+    'commands.scoreboard.players.nameNotFound': `A player name must be given.`,									//
+    'commands.scoreboard.players.enable.noTrigger': `Objective %1$s is not a trigger`,							//1': `Objective Name
+    'commands.scoreboard.players.enable.success': `Enabled trigger %1$s for %2$s`,								//1': `Trigger Name //2': `Objective Name
+    'commands.scoreboard.players.list.count': `Showing %1$d tracked players on the scoreboard':	`,				//1': `Number of Players
+    'commands.scoreboard.players.list.empty': `There are no tracked players on the scoreboard`,					//
+    'commands.scoreboard.players.list.player.count': `Showing %1$d tracked objective(s) for %2$s':	`,			//1': `Objective Count //2': `Player Name
+    'commands.scoreboard.players.list.player.empty': `Player %1$s has no scores recorded`,						//1': `Player Name
+    'commands.scoreboard.players.list.player.entry': `- %2$s: %1$d (%3$s)`,										//1': `Score Value //2': `Objective Display Name //3': `Objective Name
+    'commands.scoreboard.players.operation.invalidOperation': `Invalid operation %1$s`,							//
+    'commands.scoreboard.players.operation.notFound': `No %1$s score for %2$s found`,								//1': `Objective Name //2': `Player Name
+    'commands.scoreboard.players.operation.success': `Updated [%1$s] for %2$d entities`,							//1': `Objective Name //2': `Player Count
+    'commands.scoreboard.players.offlinePlayerName': `Player Offline`,
+    'commands.scoreboard.players.random.invalidRange': `Min %1$d is not less than max %2$d`,						//1': `Min Range Value //2': `Max Range Value
+    'commands.scoreboard.players.remove.success': `Removed %1$d from [%2$s] for %3$s (now %4$d)`,					//1': `Score Value //2': `Objective Name //3': `Player Name //4': `New Score Value
+    'commands.scoreboard.players.remove.multiple.success': `Removed %1$d from [%2$s] for %3$d entities`,			//1': `Score Value //2': `Objective Name //3': `Player Count
+    'commands.scoreboard.players.reset.success': `Reset scores of player %1$s`,									//1': `Player Name
+    'commands.scoreboard.players.resetscore.success': `Reset score %1$s of player %2$s`,							//1': `Objective Name //2': `Player Name
+    'commands.scoreboard.players.set.success': `Set [%1$s] for %2$s to %3$d`,										//1': `Objective Name //2': `Player Name //3': `Score Value
+    'commands.scoreboard.players.set.multiple.success': `Set [%1$s] for %2$d entities to %3$d`,					//1': `Objective Name //2': `Player Count //3': `Score Value
+    'commands.scoreboard.players.set.tagError': `Could not parse dataTag, reason': %1$s`,							//
+    'commands.scoreboard.players.set.tagMismatch': `The dataTag does not match for %1$s`,							//
+    'commands.scoreboard.players.score.notFound': `No %1$s score for %2$s found`,									//1': `Objective Name //2': `Player Name
+    'commands.scoreboard.players.test.failed': `Score %1$d is NOT in range %2$d to %3$d`,							//1': `Value //2': `Min Range Value //3': `Max Range Value
+    'commands.scoreboard.players.test.success': `Score %1$d is in range %2$d to %3$d`,							//1': `Value //2': `Min Range Value //3': `Max Range Value
+    'commands.scoreboard.players.get.success': `%1$d`,															//
 
-    // Scoreboards can also handle teams, which are close to what an Objective does	####
-    // with just a little extra functionality											####
+    // Scoreboards can also handle teams, which are close to what an Objective does	////
+    // with just a little extra functionality											////
 
-    'commands.scoreboard.teamNotFound': `No team was found by the name '%1$s'																##1': `Team Name
-    'commands.scoreboard.teams.add.alreadyExists': `A team with the name '%1$s' already exists												##1': `Team Name
-    'commands.scoreboard.teams.add.displayTooLong': `The display name '%1$s' is too long for a team, it can be at most %2$d characters long	##1': `Team Display Name ##2': `Name Length Limit
-    'commands.scoreboard.teams.add.success': `Added new team '%1$s' successfully															##1': `Team Name
-    'commands.scoreboard.teams.add.tooLong': `The name '%1$s' is too long for a team, it can be at most %2$d characters long				##1': `Team Name ##2': `Name Length Limit
-    'commands.scoreboard.teams.empty.alreadyEmpty': `Team %1$s is already empty, cannot remove nonexistent players							##1': `Team Name
-    'commands.scoreboard.teams.empty.success': `Removed all %1$d player(s) from team %2$s													##1': `Number of Players ##2': `Team Name
-    'commands.scoreboard.teams.join.failure': `Could not add %1$d player(s) to team %2$s': `%3$s												##1': `Number of Players ##2': `Team Name ##3': `List of Players
-    'commands.scoreboard.teams.join.success': `Added %1$d player(s) to team %2$s': `%3$s														##1': `Number of Players ##2': `Team Name ##3': `List of Players
-    'commands.scoreboard.teams.leave.failure': `Could not remove %1$d player(s) from their teams': `%2$s										##1': `Number of Players ##2': `Team Name
-    'commands.scoreboard.teams.leave.noTeam': `You are not in a team																		##
-    'commands.scoreboard.teams.leave.success': `Removed %1$d player(s) from their teams': `%2$s												##1': `Number of Players ##2': `List of Players
-    'commands.scoreboard.teams.list.count': `Showing %1$d teams on the scoreboard':	`														##1': `Number of Teams
-    'commands.scoreboard.teams.list.empty': `There are no teams registered on the scoreboard												##
-    'commands.scoreboard.teams.list.entry': `- %1$s': `'%2$s' has %3$d players																##1': `Team Name ##2': `Team Display Name ##3': `Number of Players
-    'commands.scoreboard.teams.list.player.count': `Showing %1$d player(s) in team %2$s':	`												##1': `Number of Players ##2 Team Name
-    'commands.scoreboard.teams.list.player.empty': `Team %1$s has no players																##1': `Team Name
-    'commands.scoreboard.teams.list.player.entry': `- %2$s': `%1$d (%3$s)																		##1': `Player Name ##2': `Score Value ##3': `Team Display Name
-    'commands.scoreboard.teams.option.noValue': `Valid values for option %1$s are': `%2$s														##1': `Option Name ##2': `List of Option Values
-    'commands.scoreboard.teams.option.success': `Set option %1$s for team %2$s to %3$s														##1': `Option Name ##2': `Team Name ##3': `Option Value
-    'commands.scoreboard.teams.remove.success': `Removed team %1$s																			##1': `Team Name
-    'commands.screenshake.description': `Applies shaking to the players' camera with a specified intensity and duration.
-    'commands.screenshake.success': `Sent a request to the following players for their camera to shake': `%s
-    'commands.screenshake.successStop': `Stopping camera shake for the following players': `%s	#
-    'commands.seed.success': `Seed': `%1$s
-    'commands.setblock.description': `Changes a block to another block.
-    'commands.setblock.failed': `Unable to place block
-    'commands.setblock.noChange': `The block couldn't be placed
-    'commands.setblock.notFound': `There is no such block with ID/name %1$s
-    'commands.setblock.outOfWorld': `Cannot place block outside of the world
-    'commands.setblock.success': `Block placed
-    'commands.setblock.tagError': `Data tag parsing failed': `%1$s
-    'commands.setidletimeout.success': `Successfully set the idle timeout to %1$d minutes.
-    'commands.setfixedinvslots.description': `Sets the number of fixed inventory slots for the server.
-    'commands.setfixedinvslots.success': `Number of Fixed Inventory Slots set to %1$d
-    'commands.setfixedinvslot.description': `Sets a fixed slot to a specified item.
-    'commands.setfixedinvslot.success': `Fixed Inventory Slot %1$d set to %2$s
-    'commands.globalpause.description': `Sets or gets the paused state of the game for all players.
-    'commands.globalpause.success': `Set or got pause state
-    'commands.setmaxplayers.description': `Sets the maximum number of players for this game session.
-    'commands.setmaxplayers.success': `Set max players to %1$d.
-    'commands.setmaxplayers.success.upperbound': `(Bound to maximum allowed connections)
-    'commands.setmaxplayers.success.lowerbound': `(Bound to current player count)
-    'commands.setworldspawn.description': `Sets the world spawn.
-    'commands.setworldspawn.success': `Set the world spawn point to (%1$d, %2$d, %3$d)
-    'commands.setworldspawn.wrongDimension': `The world spawn can not be set in this dimension
-    'commands.setworldspawn.notAllowedInLegacyWorlds': `The world spawn can not be set in legacy worlds
-    'commands.spawnpoint.success.single': `Set %1$s's spawn point to (%2$d, %3$d, %4$d)
-    'commands.spawnpoint.description': `Sets the spawn point for a player.
-    'commands.spawnpoint.success.multiple.specific': `Set spawn point for %1$s to (%2$d, %3$d, %4$d)
-    'commands.spawnpoint.success.multiple.generic': `Set spawn point for %1$s
-    'commands.spawnpoint.wrongDimension': `The spawn point cannot be set in this dimension
-    'commands.clearspawnpoint.success.single': `Removed %1$s's spawn point
-    'commands.clearspawnpoint.description': `Removes the spawn point for a player.
-    'commands.clearspawnpoint.success.multiple': `Removed spawn points for %1$s
-    'commands.spreadplayers.description': `Teleports entities to random locations.
-    'commands.spreadplayers.failure.players': `Could not spread %1$s players around %2$s,%3$s (too many players for space - try using spread of at most %4$s)
-    'commands.spreadplayers.failure.players.unsafe': `Could not spread %1$s players around %2$s,%3$s (no safe locations found after %4$s attempts)
-    'commands.spreadplayers.failure.teams': `Could not spread %1$s teams around %2$s,%3$s (too many players for space - try using spread of at most %4$s)
-    'commands.spreadplayers.info.players': `(Average distance between players is %1$s blocks apart after %2$s iterations)
-    'commands.spreadplayers.info.teams': `(Average distance between teams is %1$s blocks apart after %2$s iterations)
-    'commands.spreadplayers.spreading.players': `Spreading %1$s players %2$s blocks around %3$s,%4$s (min %5$s blocks apart)
-    'commands.spreadplayers.spreading.teams': `Spreading %1$s teams %2$s blocks around %3$s,%4$s (min %5$s blocks apart)
-    'commands.spreadplayers.success.players': `Successfully spread %1$s players around %2$s,%3$s
-    'commands.spreadplayers.success.teams': `Successfully spread %1$s teams around %2$s,%3$s
-    'commands.stats.cleared': `Cleared %1$s stats
-    'commands.stats.failed': `Invalid parameters
-    'commands.stats.noCompatibleBlock': `Block at %1$d, %2$d, %3$d can not track stats
-    'commands.stats.success': `Storing %1$s stats in %2$s on %3$s
-    'commands.stop.description': `Stops the server.
-    'commands.stop.start': `Stopping the server
-    'commands.stopsound.description': `Stops a sound.
-    'commands.stopsound.success': `Stopped sound %s for %s
-    'commands.stopsound.success.all': `Stopped all sounds for %s
-    'commands.structure.description': `Saves or loads a structure in the world.
-    'commands.structure.empty.load': `Can't load a structure with no entities and no blocks
-    'commands.structure.empty.save': `Can't save a structure with no entities and no blocks
-    'commands.structure.invalid.animationTime': `Animation time must be 0 or higher
-    'commands.structure.invalid.integrity': `Integrity must be in the range of 0 to 100
-    'commands.structure.invalid.name': `Name should be in the format of "name" or "namespace':n`ame". If not namespace is provided, the default one will be assigned.
-    'commands.structure.load.success': `Loaded a structure of name %s
-    'commands.structure.load.queued': `A placement request has been queued and it will be executed when the specified area is fully loaded.
-    'commands.structure.notFound': `The structure %s can't be found. Make sure the name was spelled correctly and try again.
-    'commands.structure.save.success': `Saved a structure with name %s
-    'commands.structure.size.tooBig': `A structure's size cannot be larger than (%1$d, %2$d, %3$d), it was (%4$d, %5$d, %6$d)
-    'commands.structure.size.tooSmall': `A structure's size cannot be smaller than (%1$d, %2$d, %3$d), it was (%4$d, %5$d, %6$d)
-    'commands.structure.unknown.action': `Unknown structure action provided
-    'commands.structure.unloadedChunks': `The feature to load a structure in an unloaded area hasn't been implemented yet
-    'commands.structure.y.tooHigh': `Cannot place blocks outside of the world. Try a value of %d or lower for the Y component of <to': `x y z>.
-    'commands.structure.y.tooLow': `Cannot place blocks outside of the world. Try a value greater than %d for the Y component of <to': `x y z>.
-    'commands.structure.delete.success': `Structure %s deleted.
-    'commands.summon.description': `Summons an entity.
-    'commands.summon.failed': `Unable to summon object
-    'commands.summon.outOfWorld': `Cannot summon the object out of the world
-    'commands.summon.success': `Object successfully summoned
-    'commands.summon.tagError': `Data tag parsing failed': `%1$s
-    'commands.tag.description': `Manages tags stored in entities.
-    'commands.tag.add.failed': `Target either already has the tag or has too many tags
-    'commands.tag.add.success.single': `Added tag '%1$s' to %2$s														##1': `Tag string   ##2': `Entity/Player/Item name
-    'commands.tag.add.success.multiple': `Added tag '%1$s' to %2$d entities												##1': `Tag string   ##2': `Number of entities (numerals)
-    'commands.tag.list.single.empty': `%s has no tags																	##1': `Entity/Player/Item name
-    'commands.tag.list.single.success': `%1$s has %2$d tags': `%3$s														##1': `Entity/Player/Item name   ##2': `Number of tags   ##3': `Comma separated list of tags
-    'commands.tag.list.multiple.empty': `There are no tags on the %d entities											##1': `Number of entities matching the selector
-    'commands.tag.list.multiple.success': `The %1$d entities have %2$d total tags': `%3$s									##1': `Number of entities matching the selector   ##2': `Number of tags   ##3': `Comma separated list of tags
-    'commands.tag.remove.failed': `Target does not have this tag
-    'commands.tag.remove.success.single': `Removed tag '%1$s' from %2$s													##1': `Tag string   ##2': `Entity/Player/Item name
-    'commands.tag.remove.success.multiple': `Removed tag '%1$s' from %2$d entities										##1': `Tag string   ##2': `Number of selector matches
-    'commands.tell.description': `Sends a private message to one or more players.
-    'commands.tellraw.description': `Sends a JSON message to players.
-    'commands.tellraw.jsonException': `Invalid json': `%1$s
-    'commands.tellraw.jsonStringException': `Invalid json string data.
-    'commands.tellraw.error.noData': `No data was provided.
-    'commands.tellraw.error.notArray': `Rawtext object must contain an array. Example': `"rawtext"':[`{..}]
-    'commands.tellraw.error.textNotString': `text field in rawtext must contain a string. Example': `"rawtext"':[`{"text"': `"text to display"}]
-    'commands.tellraw.error.translateNotString': `translate field in rawtext must contain a language key. Example': `"rawtext"':[`{"translate"': `"gui.ok"}]
-    'commands.tellraw.error.selectorNotString': `selector field in rawtext must contain a selector as a string. Example': `"rawtext"':[`{"selector"': `"@e"}]
-    'commands.tellraw.error.scoreNotObject': `score field in rawtext must contain an object. Example "rawtext"':[`{"score"': `{"name"': `"my_name", "objective"': `"my_objective"}}]
-    'commands.tellraw.error.scoreNameNotString': `name field in the score field must be a string. Example "rawtext"':[`{"score"': `{"name"': `"my_name", "objective"': `"my_objective"}}]
-    'commands.tellraw.error.scoreObjectiveNotString': `objective field in the score field must be a string. Example "rawtext"':[`{"score"': `{"name"': `"my_name", "objective"': `"my_objective"}}]
-    'commands.tellraw.error.withNotArrayOrRawText': `with field in rawtext must contain a array or another rawtext object. Example 1': `"rawtext"':[`{"translate"': `"chat.type.announcement", "with"': `[ "value1", "value2" ]}]  Example 2': `"rawtext"':[`{"translate"': `"chat.type.announcement", "with"':{`"rawtext"':[`{"text"': `"value1"}, {"text"': `"value2"}]}}]
-    'commands.tellraw.error.itemIsNotObject': `Json value in rawtext array was not an object. Example': `"rawtext"': `[{ "text" ': `"my text" }]
-    'commands.educlientinfo.description': `Get tenant ID and host status. Intended for CM.
-    'commands.testfor.description': `Counts entities (players, mobs, items, etc.) matching specified conditions.
-    'commands.testfor.failure': `%1$s did not match the required data structure
-    'commands.testfor.success': `Found %1$s
-    'commands.testfor.tagError': `Data tag parsing failed': `%1$s
-    'commands.testforblock.description': `Tests whether a certain block is in a specific location.
-    'commands.testforblock.failed.data': `The block at %1$d,%2$d,%3$d did not match the expected block state.
-    'commands.testforblock.failed.nbt': `The block at %1$d,%2$d,%3$d did not have the required NBT keys.
-    'commands.testforblock.failed.tile': `The block at %1$d,%2$d,%3$d is %4$s (expected': `%5$s).
-    'commands.testforblock.failed.tileEntity': `The block at %1$d,%2$d,%3$d is not a tile entity and cannot support tag matching.
-    'commands.testforblock.outOfWorld': `Cannot test for block outside of the world
-    'commands.testforblock.success': `Successfully found the block at %1$d,%2$d,%3$d.
-    'commands.testforblocks.description': `Tests whether the blocks in two regions match.
-    'commands.tickingarea.description': `Add, remove, or list ticking areas.
-    'commands.tickingarea.inuse': `%1$d/%2$d ticking areas in use.
-    'commands.tickingarea.entitycount': `There are %1$d ticking area(s) from entities with the tick_world component.
-    'commands.tickingarea.noneExist.currentDimension': `No ticking areas exist in the current dimension.
-    'commands.tickingarea-add-bounds.success': `Added ticking area from %1$d to %2$d.
-    'commands.tickingarea-add-bounds.preload.success': `Added ticking area from %1$d to %2$d marked for preload.
-    'commands.tickingarea-add-circle.success': `Added ticking area centered at %1$d with a radius of %2$d chunks.
-    'commands.tickingarea-add-circle.preload.success': `Added ticking area centered at %1$d with a radius of %2$d chunks marked for preload.
-    'commands.tickingarea-add.failure': `Max number of ticking areas (%1$d) has already been reached. Cannot add more ticking areas.
-    'commands.tickingarea-add.conflictingname': `A ticking area with the name %1$s already exists.
-    'commands.tickingarea-add.chunkfailure': `Ticking area contains more than %1$d chunks, ticking area is too large and cannot be created.
-    'commands.tickingarea-add.radiusfailure': `Radius cannot be larger than %1$d, ticking area is too large and cannot be created.
-    'commands.tickingarea-remove.success': `Removed ticking area(s)
-    'commands.tickingarea-remove.failure': `No ticking areas containing the block position %1$d exist in the current dimension.
-    'commands.tickingarea-remove.byname.failure': `No ticking areas named %1$s exist in the current dimension.
-    'commands.tickingarea-remove_all.success': `Removed ticking area(s)
-    'commands.tickingarea-remove_all.failure': `No ticking areas exist in the current dimension.
-    'commands.tickingarea-preload.success': `Updated ticking area(s)
-    'commands.tickingarea-preload.byposition.failure': `No ticking areas containing the block position %1$d exist in the current dimension.
-    'commands.tickingarea-preload.byname.failure': `No ticking areas named %1$s exist in the current dimension.
-    'commands.tickingarea-preload.count': `%1$d matching area(s) are marked for preload.
-    'commands.tickingarea-list.chunks': `chunks	## Meaning a chunk of the world.
-    'commands.tickingarea-list.circle.radius': `Radius
-    'commands.tickingarea-list.preload': `Preload
-    'commands.tickingarea-list.success.currentDimension': `List of all ticking areas in current dimension
-    'commands.tickingarea-list.success.allDimensions': `List of all ticking areas in all dimensions
-    'commands.tickingarea-list.failure.allDimensions': `No ticking areas exist in any dimension.
-    'commands.tickingarea-list.to': `to	## Used in the context of "from position to other position"
-    'commands.tickingarea-list.type.circle': `Circle
-    'commands.time.added': `Added %1$d to the time
-    'commands.time.description': `Changes or queries the world's game time.
-    'commands.time.disabled': `Always Day is enabled in this world.
-    'commands.time.query.day': `Day is %d
-    'commands.time.query.daytime': `Daytime is %d
-    'commands.time.query.gametime': `Gametime is %d
-    'commands.time.set': `Set the time to %1$d
-    'commands.time.stop': `Time %1$s
-    'commands.title.description': `Controls screen titles.
-    'commands.title.success': `Title command successfully executed
-    'commands.titleraw.description': `Controls screen titles with JSON messages.
-    'commands.titleraw.success': `Titleraw command successfully executed
-    'commands.toggledownfall.description': `Toggles the weather.
-    'commands.tp.description': `Teleports entities (players, mobs, etc.).
-    'commands.tp.notSameDimension': `Unable to teleport because players are not in the same dimension
-    'commands.tp.outOfWorld': `Cannot teleport entities outside of the world
-    'commands.tp.permission': `You do not have permission to use this slash command.
-    'commands.tp.safeTeleportFail': `Unable to teleport %1$s to %2$s because the area wasn't clear of blocks.
-    'commands.tp.far': `Unable to teleport %1$s to the unloaded area at %2$s
-    'commands.tp.success': `Teleported %1$s to %2$s
-    'commands.tp.successVictim': `You have been teleported to %1$s
-    'commands.tp.success.coordinates': `Teleported %1$s to %2$s, %3$s, %4$s
-    'commands.transferserver.description': `Transfers a player to another server.
-    'commands.transferserver.successful': `Transferred player
-    'commands.transferserver.invalid.port': `Invalid port (0-65535)
-    'commands.trigger.description': `Sets a trigger to be activated.
-    'commands.trigger.disabled': `Trigger %1$s is not enabled
-    'commands.trigger.invalidMode': `Invalid trigger mode %1$s
-    'commands.trigger.invalidObjective': `Invalid trigger name %1$s
-    'commands.trigger.invalidPlayer': `Only players can use the /trigger command
-    'commands.trigger.success': `Trigger %1$s changed with %2$s %3$s
-    'commands.unban.failed': `Could not unban player %1$s
-    'commands.unban.success': `Unbanned player %1$s
-    'commands.unbanip.invalid': `You have entered an invalid IP address
-    'commands.unbanip.success': `Unbanned IP address %1$s
-    'commands.validategamelighting.description': `Validate game lighting for a specified region
-    'commands.validategamelighting.checkRegionTooBig': `Region to check for lighting is too big! (%1$d > %2$d)
-    'commands.validategamelighting.outOfWorld': `Cannot check lighting outside of the world
-    'commands.volumearea.description': `Add, remove, or list volumes in the current dimension.
-    'commands.volumearea.add.definitionDoesntExist.failure': `No volume definition matching identifier "%1$s".
-    'commands.volumearea.add.exceededLimit.failure': `Max number of volumes %1$d has already been reached. Cannot add more volumes.
-    'commands.volumearea.add.failure': `Failed to create volume.
-    'commands.volumearea.add.success': `Added volume "%1$s" from %2$d to %3$d.
-    'commands.volumearea.remove.byName.failure': `No volumes named %1$s exist in the current dimension.
-    'commands.volumearea.remove.byPosition.failure': `No volumes containing the block position %1$d exist in the current dimension.
-    'commands.volumearea.remove.success': `Removed volume(s) in current dimension
-    'commands.volumearea.remove_all.success': `Removed volume(s) in current dimension
-    'commands.volumearea.list.success.currentDimension': `List of all volumes in current dimension
-    'commands.volumearea.list.success.allDimensions': `List of all volumes in all dimensions
-    'commands.volumearea.list.failure.allDimensions': `No volumes exist in any dimension.
-    'commands.volumearea.entry.withIdentifier': `- %s': `%s from %d %d %d to %d %d %d
-    'commands.volumearea.entry.withoutIdentifier': `- %s': `from %d %d %d to %d %d %d
-    'commands.volumearea.noneExist.currentDimension': `No volumes exist in the current dimension.
-    'commands.volumearea.inUse': `%1$d/%2$d volumes in use.
-    'commands.weather.clear': `Changing to clear weather
-    'commands.weather.description': `Sets the weather.
-    'commands.weather.disabled': `Weather Cycle isn't enabled in this world.
-    'commands.weather.query': `Weather state is': `%s
-    'commands.weather.query.clear': `clear
-    'commands.weather.query.rain': `rain
-    'commands.weather.query.thunder': `thunder
-    'commands.weather.rain': `Changing to rainy weather
-    'commands.weather.thunder': `Changing to rain and thunder
-    'commands.allowlist.add.failed': `Could not add %1$s to the allowlist
-    'commands.allowlist.add.success': `Added %1$s to the allowlist
-    'commands.allowlist.description': `Manages the server allowlist.
-    'commands.allowlist.disabled': `Turned off the allowlist
-    'commands.allowlist.enabled': `Turned on the allowlist
-    'commands.allowlist.list': `There are %1$d (out of %2$d seen) allowlisted players':
-    'commands.allowlist.reloaded': `Allowlist reloaded from file.
-    'commands.allowlist.remove.failed': `Could not remove %1$s from the allowlist
-    'commands.allowlist.remove.success': `Removed %1$s from the allowlist
-    'commands.world_age.description': `Changes or queries the world's age (time since creation).
-    'commands.world_age.added': `Added %1$d to the world's age
-    'commands.world_age.query': `World age is %d
-    'commands.world_age.set': `Set the world's age to %1$d
-    'commands.worldborder.center.success': `Set world border center to %1$s,%2$s
-    'commands.worldborder.damage.amount.success': `Set world border damage amount to %1$s per block (from %2$s per block)`
-    'commands.worldborder.damage.buffer.success': `Set world border damage buffer to %1$s blocks (from %2$s blocks)`
-    'commands.worldborder.get.success': `World border is currently %1$s blocks wide`
-    'commands.worldborder.set.success': `Set world border to %1$s blocks wide (from %2$s blocks)`
-    'commands.worldborder.setSlowly.grow.success': `Growing world border to %1$s blocks wide (up from %2$s blocks) over %3$s seconds`
-    'commands.worldborder.setSlowly.shrink.success': `Shrinking world border to %1$s blocks wide (down from %2$s blocks) over %3$s seconds`
-    'commands.worldborder.warning.distance.success': `Set world border warning to %1$s blocks away (from %2$s blocks)`
-    'commands.worldborder.warning.time.success': `Set world border warning to %1$s seconds away (from %2$s seconds)`
-    'commands.worldbuilder.description': `Toggle World Builder status of caller.`
-    'commands.worldbuilder.success': `World Builder status updated to %1$s`
-    'commands.wsserver.description': `Attempts to connect to the websocket server on the provided URL.`
-    'commands.wsserver.invalid.url': `The provided server URL is invalid`
-    'commands.wsserver.request.existing': `Another connection request is currently running`
-    'commands.wsserver.request.failed': `Could not connect to server': `%1$s`
-    'commands.wsserver.success': `Connection established to server': `%1$s`
-    'commands.xp.description': `Adds or removes player experience.`
-    'commands.xp.failure.widthdrawXp': `Cannot give player negative experience points`
-    'commands.xp.success': `Gave %1$d experience to %2$s`
-    'commands.xp.success.levels': `Gave %1$d levels to %2$s`
+    'commands.scoreboard.teamNotFound': `No team was found by the name '%1$s'`,																//1': `Team Name
+    'commands.scoreboard.teams.add.alreadyExists': `A team with the name '%1$s' already exists`,												//1': `Team Name
+    'commands.scoreboard.teams.add.displayTooLong': `The display name '%1$s' is too long for a team, it can be at most %2$d characters long`,	//1': `Team Display Name //2': `Name Length Limit
+    'commands.scoreboard.teams.add.success': `Added new team '%1$s' successfully`,															//1': `Team Name
+    'commands.scoreboard.teams.add.tooLong': `The name '%1$s' is too long for a team, it can be at most %2$d characters long`,				//1': `Team Name //2': `Name Length Limit
+    'commands.scoreboard.teams.empty.alreadyEmpty': `Team %1$s is already empty, cannot remove nonexistent players`,							//1': `Team Name
+    'commands.scoreboard.teams.empty.success': `Removed all %1$d player(s) from team %2$s`,													//1': `Number of Players //2': `Team Name
+    'commands.scoreboard.teams.join.failure': `Could not add %1$d player(s) to team %2$s': %3$s`,												//1': `Number of Players //2': `Team Name //3': `List of Players
+    'commands.scoreboard.teams.join.success': `Added %1$d player(s) to team %2$s': %3$s`,														//1': `Number of Players //2': `Team Name //3': `List of Players
+    'commands.scoreboard.teams.leave.failure': `Could not remove %1$d player(s) from their teams': %2$s`,									//1': `Number of Players //2': `Team Name
+    'commands.scoreboard.teams.leave.noTeam': `You are not in a team`,																		//
+    'commands.scoreboard.teams.leave.success': `Removed %1$d player(s) from their teams': %2$s`,												//1': `Number of Players //2': `List of Players
+    'commands.scoreboard.teams.list.count': `Showing %1$d teams on the scoreboard':	`,														//1': `Number of Teams
+    'commands.scoreboard.teams.list.empty': `There are no teams registered on the scoreboard`,												//
+    'commands.scoreboard.teams.list.entry': `- %1$s': '%2$s' has %3$d players`,																//1': `Team Name //2': `Team Display Name //3': `Number of Players
+    'commands.scoreboard.teams.list.player.count': `Showing %1$d player(s) in team %2$s':	`,												//1': `Number of Players //2 Team Name
+    'commands.scoreboard.teams.list.player.empty': `Team %1$s has no players`,																//1': `Team Name
+    'commands.scoreboard.teams.list.player.entry': `- %2$s': %1$d (%3$s)`,																		//1': `Player Name //2': `Score Value //3': `Team Display Name
+    'commands.scoreboard.teams.option.noValue': `Valid values for option %1$s are': %2$s`,													//1': `Option Name //2': `List of Option Values
+    'commands.scoreboard.teams.option.success': `Set option %1$s for team %2$s to %3$s`,														//1': `Option Name //2': `Team Name //3': `Option Value
+    'commands.scoreboard.teams.remove.success': `Removed team %1$s`,																			//1': `Team Name
+    'commands.screenshake.description': `Applies shaking to the players' camera with a specified intensity and duration.`,
+    'commands.screenshake.success': `Sent a request to the following players for their camera to shake': %s`,
+    'commands.screenshake.successStop': `Stopping camera shake for the following players': %s`,	
+    'commands.seed.success': `Seed': %1$s`,
+    'commands.setblock.description': `Changes a block to another block.`,
+    'commands.setblock.failed': `Unable to place block`,
+    'commands.setblock.noChange': `The block couldn't be placed`,
+    'commands.setblock.notFound': `There is no such block with ID/name %1$s`,
+    'commands.setblock.outOfWorld': `Cannot place block outside of the world`,
+    'commands.setblock.success': `Block placed`,
+    'commands.setblock.tagError': `Data tag parsing failed': %1$s`,
+    'commands.setidletimeout.success': `Successfully set the idle timeout to %1$d minutes.`,
+    'commands.setfixedinvslots.description': `Sets the number of fixed inventory slots for the server.`,
+    'commands.setfixedinvslots.success': `Number of Fixed Inventory Slots set to %1$d`,
+    'commands.setfixedinvslot.description': `Sets a fixed slot to a specified item.`,
+    'commands.setfixedinvslot.success': `Fixed Inventory Slot %1$d set to %2$s`,
+    'commands.globalpause.description': `Sets or gets the paused state of the game for all players.`,
+    'commands.globalpause.success': `Set or got pause state`,
+    'commands.setmaxplayers.description': `Sets the maximum number of players for this game session.`,
+    'commands.setmaxplayers.success': `Set max players to %1$d.`,
+    'commands.setmaxplayers.success.upperbound': `(Bound to maximum allowed connections)`,
+    'commands.setmaxplayers.success.lowerbound': `(Bound to current player count)`,
+    'commands.setworldspawn.description': `Sets the world spawn.`,
+    'commands.setworldspawn.success': `Set the world spawn point to (%1$d, %2$d, %3$d)`,
+    'commands.setworldspawn.wrongDimension': `The world spawn can not be set in this dimension`,
+    'commands.setworldspawn.notAllowedInLegacyWorlds': `The world spawn can not be set in legacy worlds`,
+    'commands.spawnpoint.success.single': `Set %1$s's spawn point to (%2$d, %3$d, %4$d)`,
+    'commands.spawnpoint.description': `Sets the spawn point for a player.`,
+    'commands.spawnpoint.success.multiple.specific': `Set spawn point for %1$s to (%2$d, %3$d, %4$d)`,
+    'commands.spawnpoint.success.multiple.generic': `Set spawn point for %1$s`,
+    'commands.spawnpoint.wrongDimension': `The spawn point cannot be set in this dimension`,
+    'commands.clearspawnpoint.success.single': `Removed %1$s's spawn point`,
+    'commands.clearspawnpoint.description': `Removes the spawn point for a player.`,
+    'commands.clearspawnpoint.success.multiple': `Removed spawn points for %1$s`,
+    'commands.spreadplayers.description': `Teleports entities to random locations.`,
+    'commands.spreadplayers.failure.players': `Could not spread %1$s players around %2$s,%3$s (too many players for space - try using spread of at most %4$s)`,
+    'commands.spreadplayers.failure.players.unsafe': `Could not spread %1$s players around %2$s,%3$s (no safe locations found after %4$s attempts)`,
+    'commands.spreadplayers.failure.teams': `Could not spread %1$s teams around %2$s,%3$s (too many players for space - try using spread of at most %4$s)`,
+    'commands.spreadplayers.info.players': `(Average distance between players is %1$s blocks apart after %2$s iterations)`,
+    'commands.spreadplayers.info.teams': `(Average distance between teams is %1$s blocks apart after %2$s iterations)`,
+    'commands.spreadplayers.spreading.players': `Spreading %1$s players %2$s blocks around %3$s,%4$s (min %5$s blocks apart)`,
+    'commands.spreadplayers.spreading.teams': `Spreading %1$s teams %2$s blocks around %3$s,%4$s (min %5$s blocks apart)`,
+    'commands.spreadplayers.success.players': `Successfully spread %1$s players around %2$s,%3$s`,
+    'commands.spreadplayers.success.teams': `Successfully spread %1$s teams around %2$s,%3$s`,
+    'commands.stats.cleared': `Cleared %1$s stats`,
+    'commands.stats.failed': `Invalid parameters`,
+    'commands.stats.noCompatibleBlock': `Block at %1$d, %2$d, %3$d can not track stats`,
+    'commands.stats.success': `Storing %1$s stats in %2$s on %3$s`,
+    'commands.stop.description': `Stops the server.`,
+    'commands.stop.start': `Stopping the server`,
+    'commands.stopsound.description': `Stops a sound.`,
+    'commands.stopsound.success': `Stopped sound %s for %s`,
+    'commands.stopsound.success.all': `Stopped all sounds for %s`,
+    'commands.structure.description': `Saves or loads a structure in the world.`,
+    'commands.structure.empty.load': `Can't load a structure with no entities and no blocks`,
+    'commands.structure.empty.save': `Can't save a structure with no entities and no blocks`,
+    'commands.structure.invalid.animationTime': `Animation time must be 0 or higher`,
+    'commands.structure.invalid.integrity': `Integrity must be in the range of 0 to 100`,
+    'commands.structure.invalid.name': `Name should be in the format of "name" or "namespace:name". If not namespace is provided, the default one will be assigned.`,
+    'commands.structure.load.success': `Loaded a structure of name %s`,
+    'commands.structure.load.queued': `A placement request has been queued and it will be executed when the specified area is fully loaded.`,
+    'commands.structure.notFound': `The structure %s can't be found. Make sure the name was spelled correctly and try again.`,
+    'commands.structure.save.success': `Saved a structure with name %s`,
+    'commands.structure.size.tooBig': `A structure's size cannot be larger than (%1$d, %2$d, %3$d), it was (%4$d, %5$d, %6$d)`,
+    'commands.structure.size.tooSmall': `A structure's size cannot be smaller than (%1$d, %2$d, %3$d), it was (%4$d, %5$d, %6$d)`,
+    'commands.structure.unknown.action': `Unknown structure action provided`,
+    'commands.structure.unloadedChunks': `The feature to load a structure in an unloaded area hasn't been implemented yet`,
+    'commands.structure.y.tooHigh': `Cannot place blocks outside of the world. Try a value of %d or lower for the Y component of <to': x y z>.`,
+    'commands.structure.y.tooLow': `Cannot place blocks outside of the world. Try a value greater than %d for the Y component of <to': x y z>.`,
+    'commands.structure.delete.success': `Structure %s deleted.`,
+    'commands.summon.description': `Summons an entity.`,
+    'commands.summon.failed': `Unable to summon object`,
+    'commands.summon.outOfWorld': `Cannot summon the object out of the world`,
+    'commands.summon.success': `Object successfully summoned`,
+    'commands.summon.tagError': `Data tag parsing failed': %1$s`,
+    'commands.tag.description': `Manages tags stored in entities.`,
+    'commands.tag.add.failed': `Target either already has the tag or has too many tags`,
+    'commands.tag.add.success.single': `Added tag '%1$s' to %2$s`,														//1': `Tag string   //2': `Entity/Player/Item name
+    'commands.tag.add.success.multiple': `Added tag '%1$s' to %2$d entities`,												//1': `Tag string   //2': `Number of entities (numerals)
+    'commands.tag.list.single.empty': `%s has no tags`,																	//1': `Entity/Player/Item name
+    'commands.tag.list.single.success': `%1$s has %2$d tags': %3$s`,														//1': `Entity/Player/Item name   //2': `Number of tags   //3': `Comma separated list of tags
+    'commands.tag.list.multiple.empty': `There are no tags on the %d entities`,											//1': `Number of entities matching the selector
+    'commands.tag.list.multiple.success': `The %1$d entities have %2$d total tags': %3$s`,								//1': `Number of entities matching the selector   //2': `Number of tags   //3': `Comma separated list of tags
+    'commands.tag.remove.failed': `Target does not have this tag`,
+    'commands.tag.remove.success.single': `Removed tag '%1$s' from %2$s`,													//1': `Tag string   //2': `Entity/Player/Item name
+    'commands.tag.remove.success.multiple': `Removed tag '%1$s' from %2$d entities`,										//1': `Tag string   //2': `Number of selector matches
+    'commands.tell.description': `Sends a private message to one or more players.`,
+    'commands.tellraw.description': `Sends a JSON message to players.`,
+    'commands.tellraw.jsonException': `Invalid json': %1$s`,
+    'commands.tellraw.jsonStringException': `Invalid json string data.`,
+    'commands.tellraw.error.noData': `No data was provided.`,
+    'commands.tellraw.error.notArray': `Rawtext object must contain an array. Example': "rawtext"':[{..}]`,
+    'commands.tellraw.error.textNotString': `text field in rawtext must contain a string. Example': "rawtext"':[{"text"': "text to display"}]`,
+    'commands.tellraw.error.translateNotString': `translate field in rawtext must contain a language key. Example': "rawtext"':[{"translate"': "gui.ok"}]`,
+    'commands.tellraw.error.selectorNotString': `selector field in rawtext must contain a selector as a string. Example': "rawtext"':[{"selector"': "@e"}]`,
+    'commands.tellraw.error.scoreNotObject': `score field in rawtext must contain an object. Example "rawtext"':[{"score"': {"name"': "my_name", "objective"': "my_objective"}}]`,
+    'commands.tellraw.error.scoreNameNotString': `name field in the score field must be a string. Example "rawtext"':[{"score"': {"name"': "my_name", "objective"': "my_objective"}}]`,
+    'commands.tellraw.error.scoreObjectiveNotString': `objective field in the score field must be a string. Example "rawtext"':[{"score"': {"name"': "my_name", "objective"': "my_objective"}}]`,
+    'commands.tellraw.error.withNotArrayOrRawText': `with field in rawtext must contain a array or another rawtext object. Example 1': "rawtext"':[{"translate"': "chat.type.announcement", "with"': [ "value1", "value2" ]}]  Example 2': "rawtext"':[{"translate"': "chat.type.announcement", "with"':{"rawtext"':[{"text"': "value1"}, {"text"': "value2"}]}}]`,
+    'commands.tellraw.error.itemIsNotObject': `Json value in rawtext array was not an object. Example': "rawtext"': [{ "text" ': "my text" }]`,
+    'commands.educlientinfo.description': `Get tenant ID and host status. Intended for CM.`,
+    'commands.testfor.description': `Counts entities (players, mobs, items, etc.) matching specified conditions.`,
+    'commands.testfor.failure': `%1$s did not match the required data structure`,
+    'commands.testfor.success': `Found %1$s`,
+    'commands.testfor.tagError': `Data tag parsing failed': %1$s`,
+    'commands.testforblock.description': `Tests whether a certain block is in a specific location.`,
+    'commands.testforblock.failed.data': `The block at %1$d,%2$d,%3$d did not match the expected block state.`,
+    'commands.testforblock.failed.nbt': `The block at %1$d,%2$d,%3$d did not have the required NBT keys.`,
+    'commands.testforblock.failed.tile': `The block at %1$d,%2$d,%3$d is %4$s (expected': %5$s).`,
+    'commands.testforblock.failed.tileEntity': `The block at %1$d,%2$d,%3$d is not a tile entity and cannot support tag matching.`,
+    'commands.testforblock.outOfWorld': `Cannot test for block outside of the world`,
+    'commands.testforblock.success': `Successfully found the block at %1$d,%2$d,%3$d.`,
+    'commands.testforblocks.description': `Tests whether the blocks in two regions match.`,
+    'commands.tickingarea.description': `Add, remove, or list ticking areas.`,
+    'commands.tickingarea.inuse': `%1$d/%2$d ticking areas in use.`,
+    'commands.tickingarea.entitycount': `There are %1$d ticking area(s) from entities with the tick_world component.`,
+    'commands.tickingarea.noneExist.currentDimension': `No ticking areas exist in the current dimension.`,
+    'commands.tickingarea-add-bounds.success': `Added ticking area from %1$d to %2$d.`,
+    'commands.tickingarea-add-bounds.preload.success': `Added ticking area from %1$d to %2$d marked for preload.`,
+    'commands.tickingarea-add-circle.success': `Added ticking area centered at %1$d with a radius of %2$d chunks.`,
+    'commands.tickingarea-add-circle.preload.success': `Added ticking area centered at %1$d with a radius of %2$d chunks marked for preload.`,
+    'commands.tickingarea-add.failure': `Max number of ticking areas (%1$d) has already been reached. Cannot add more ticking areas.`,
+    'commands.tickingarea-add.conflictingname': `A ticking area with the name %1$s already exists.`,
+    'commands.tickingarea-add.chunkfailure': `Ticking area contains more than %1$d chunks, ticking area is too large and cannot be created.`,
+    'commands.tickingarea-add.radiusfailure': `Radius cannot be larger than %1$d, ticking area is too large and cannot be created.`,
+    'commands.tickingarea-remove.success': `Removed ticking area(s)`,
+    'commands.tickingarea-remove.failure': `No ticking areas containing the block position %1$d exist in the current dimension.`,
+    'commands.tickingarea-remove.byname.failure': `No ticking areas named %1$s exist in the current dimension.`,
+    'commands.tickingarea-remove_all.success': `Removed ticking area(s)`,
+    'commands.tickingarea-remove_all.failure': `No ticking areas exist in the current dimension.`,
+    'commands.tickingarea-preload.success': `Updated ticking area(s)`,
+    'commands.tickingarea-preload.byposition.failure': `No ticking areas containing the block position %1$d exist in the current dimension.`,
+    'commands.tickingarea-preload.byname.failure': `No ticking areas named %1$s exist in the current dimension.`,
+    'commands.tickingarea-preload.count': `%1$d matching area(s) are marked for preload.`,
+    'commands.tickingarea-list.chunks': `chunks`,	// Meaning a chunk of the world.
+    'commands.tickingarea-list.circle.radius': `Radius`,
+    'commands.tickingarea-list.preload': `Preload`,
+    'commands.tickingarea-list.success.currentDimension': `List of all ticking areas in current dimension`,
+    'commands.tickingarea-list.success.allDimensions': `List of all ticking areas in all dimensions`,
+    'commands.tickingarea-list.failure.allDimensions': `No ticking areas exist in any dimension.`,
+    'commands.tickingarea-list.to': `to`,	// Used in the context of "from position to other position"
+    'commands.tickingarea-list.type.circle': `Circle`,
+    'commands.time.added': `Added %1$d to the time`,
+    'commands.time.description': `Changes or queries the world's game time.`,
+    'commands.time.disabled': `Always Day is enabled in this world.`,
+    'commands.time.query.day': `Day is %d`,
+    'commands.time.query.daytime': `Daytime is %d`,
+    'commands.time.query.gametime': `Gametime is %d`,
+    'commands.time.set': `Set the time to %1$d`,
+    'commands.time.stop': `Time %1$s`,
+    'commands.title.description': `Controls screen titles.`,
+    'commands.title.success': `Title command successfully executed`,
+    'commands.titleraw.description': `Controls screen titles with JSON messages.`,
+    'commands.titleraw.success': `Titleraw command successfully executed`,
+    'commands.toggledownfall.description': `Toggles the weather.`,
+    'commands.tp.description': `Teleports entities (players, mobs, etc.).`,
+    'commands.tp.notSameDimension': `Unable to teleport because players are not in the same dimension`,
+    'commands.tp.outOfWorld': `Cannot teleport entities outside of the world`,
+    'commands.tp.permission': `You do not have permission to use this slash command.`,
+    'commands.tp.safeTeleportFail': `Unable to teleport %1$s to %2$s because the area wasn't clear of blocks.`,
+    'commands.tp.far': `Unable to teleport %1$s to the unloaded area at %2$s`,
+    'commands.tp.success': `Teleported %1$s to %2$s`,
+    'commands.tp.successVictim': `You have been teleported to %1$s`,
+    'commands.tp.success.coordinates': `Teleported %1$s to %2$s, %3$s, %4$s`,
+    'commands.transferserver.description': `Transfers a player to another server.`,
+    'commands.transferserver.successful': `Transferred player`,
+    'commands.transferserver.invalid.port': `Invalid port (0-65535)`,
+    'commands.trigger.description': `Sets a trigger to be activated.`,
+    'commands.trigger.disabled': `Trigger %1$s is not enabled`,
+    'commands.trigger.invalidMode': `Invalid trigger mode %1$s`,
+    'commands.trigger.invalidObjective': `Invalid trigger name %1$s`,
+    'commands.trigger.invalidPlayer': `Only players can use the /trigger command`,
+    'commands.trigger.success': `Trigger %1$s changed with %2$s %3$s`,
+    'commands.unban.failed': `Could not unban player %1$s`,
+    'commands.unban.success': `Unbanned player %1$s`,
+    'commands.unbanip.invalid': `You have entered an invalid IP address`,
+    'commands.unbanip.success': `Unbanned IP address %1$s`,
+    'commands.validategamelighting.description': `Validate game lighting for a specified region`,
+    'commands.validategamelighting.checkRegionTooBig': `Region to check for lighting is too big! (%1$d > %2$d)`,
+    'commands.validategamelighting.outOfWorld': `Cannot check lighting outside of the world`,
+    'commands.volumearea.description': `Add, remove, or list volumes in the current dimension.`,
+    'commands.volumearea.add.definitionDoesntExist.failure': `No volume definition matching identifier "%1$s".`,
+    'commands.volumearea.add.exceededLimit.failure': `Max number of volumes %1$d has already been reached. Cannot add more volumes.`,
+    'commands.volumearea.add.failure': `Failed to create volume.`,
+    'commands.volumearea.add.success': `Added volume "%1$s" from %2$d to %3$d.`,
+    'commands.volumearea.remove.byName.failure': `No volumes named %1$s exist in the current dimension.`,
+    'commands.volumearea.remove.byPosition.failure': `No volumes containing the block position %1$d exist in the current dimension.`,
+    'commands.volumearea.remove.success': `Removed volume(s) in current dimension`,
+    'commands.volumearea.remove_all.success': `Removed volume(s) in current dimension`,
+    'commands.volumearea.list.success.currentDimension': `List of all volumes in current dimension`,
+    'commands.volumearea.list.success.allDimensions': `List of all volumes in all dimensions`,
+    'commands.volumearea.list.failure.allDimensions': `No volumes exist in any dimension.`,
+    'commands.volumearea.entry.withIdentifier': `- %s': %s from %d %d %d to %d %d %d`,
+    'commands.volumearea.entry.withoutIdentifier': `- %s': from %d %d %d to %d %d %d`,
+    'commands.volumearea.noneExist.currentDimension': `No volumes exist in the current dimension.`,
+    'commands.volumearea.inUse': `%1$d/%2$d volumes in use.`,
+    'commands.weather.clear': `Changing to clear weather`,
+    'commands.weather.description': `Sets the weather.`,
+    'commands.weather.disabled': `Weather Cycle isn't enabled in this world.`,
+    'commands.weather.query': `Weather state is': %s`,
+    'commands.weather.query.clear': `clear`,
+    'commands.weather.query.rain': `rain`,
+    'commands.weather.query.thunder': `thunder`,
+    'commands.weather.rain': `Changing to rainy weather`,
+    'commands.weather.thunder': `Changing to rain and thunder`,
+    'commands.allowlist.add.failed': `Could not add %1$s to the allowlist`,
+    'commands.allowlist.add.success': `Added %1$s to the allowlist`,
+    'commands.allowlist.description': `Manages the server allowlist.`,
+    'commands.allowlist.disabled': `Turned off the allowlist`,
+    'commands.allowlist.enabled': `Turned on the allowlist`,
+    'commands.allowlist.list': `There are %1$d (out of %2$d seen) allowlisted players':`,
+    'commands.allowlist.reloaded': `Allowlist reloaded from file.`,
+    'commands.allowlist.remove.failed': `Could not remove %1$s from the allowlist`,
+    'commands.allowlist.remove.success': `Removed %1$s from the allowlist`,
+    'commands.world_age.description': `Changes or queries the world's age (time since creation).`,
+    'commands.world_age.added': `Added %1$d to the world's age`,
+    'commands.world_age.query': `World age is %d`,
+    'commands.world_age.set': `Set the world's age to %1$d`,
+    'commands.worldborder.center.success': `Set world border center to %1$s,%2$s`,
+    'commands.worldborder.damage.amount.success': `Set world border damage amount to %1$s per block (from %2$s per block)`,
+    'commands.worldborder.damage.buffer.success': `Set world border damage buffer to %1$s blocks (from %2$s blocks)`,
+    'commands.worldborder.get.success': `World border is currently %1$s blocks wide`,
+    'commands.worldborder.set.success': `Set world border to %1$s blocks wide (from %2$s blocks)`,
+    'commands.worldborder.setSlowly.grow.success': `Growing world border to %1$s blocks wide (up from %2$s blocks) over %3$s seconds`,
+    'commands.worldborder.setSlowly.shrink.success': `Shrinking world border to %1$s blocks wide (down from %2$s blocks) over %3$s seconds`,
+    'commands.worldborder.warning.distance.success': `Set world border warning to %1$s blocks away (from %2$s blocks)`,
+    'commands.worldborder.warning.time.success': `Set world border warning to %1$s seconds away (from %2$s seconds)`,
+    'commands.worldbuilder.description': `Toggle World Builder status of caller.`,
+    'commands.worldbuilder.success': `World Builder status updated to %1$s`,
+    'commands.wsserver.description': `Attempts to connect to the websocket server on the provided URL.`,
+    'commands.wsserver.invalid.url': `The provided server URL is invalid`,
+    'commands.wsserver.request.existing': `Another connection request is currently running`,
+    'commands.wsserver.request.failed': `Could not connect to server': %1$s`,
+    'commands.wsserver.success': `Connection established to server': %1$s`,
+    'commands.xp.description': `Adds or removes player experience.`,
+    'commands.xp.failure.widthdrawXp': `Cannot give player negative experience points`,
+    'commands.xp.success': `Gave %1$d experience to %2$s`,
+    'commands.xp.success.levels': `Gave %1$d levels to %2$s`,
     'commands.xp.success.negative.levels': `Taken %1$d levels from %2$s`
 }
-*/
+
+export const potionTranslations = {
+    'potion.absorption': `Absorption`,
+    'potion.blindness': `Blindness`,
+    'potion.conduitPower': `Conduit Power`,
+    'potion.confusion': `Nausea`,
+    'potion.damageBoost': `Strength`,
+    'potion.damageBoost.name': `Potion of Strength`,
+    'potion.damageBoost.splash.name': `Splash Potion of Strength`,
+    'potion.damageBoost.linger.name': `Lingering Potion of Strength`,
+    'potion.digSlowDown': `Mining Fatigue`,
+    'potion.digSpeed': `Haste`,
+    'potion.effects.whenDrank': `When Applied:`,
+    'potion.empty': `No Effects`,
+    'potion.emptyPotion.name': `Water Bottle`,
+    'potion.emptyPotion.splash.name': `Splash Water Bottle`,
+    'potion.emptyPotion.linger.name': `Lingering Water Bottle`,
+    'potion.fireResistance': `Fire Resistance`,
+    'potion.fireResistance.name': `Potion of Fire Resistance`,
+    'potion.fireResistance.splash.name': `Splash Potion of Fire Resistance`,
+    'potion.fireResistance.linger.name': `Lingering Potion of Fire Resistance`,
+    'potion.harm': `Instant Damage`,
+    'potion.harm.name': `Potion of Harming`,
+    'potion.harm.splash.name': `Splash Potion of Harming`,
+    'potion.harm.linger.name': `Lingering Potion of Harming`,
+    'potion.heal': `Instant Health`,
+    'potion.heal.name': `Potion of Healing`,
+    'potion.heal.splash.name': `Splash Potion of Healing`,
+    'potion.heal.linger.name': `Lingering Potion of Healing`,
+    'potion.healthBoost': `Health Boost`,
+    'potion.hunger': `Hunger`,
+    'potion.invisibility': `Invisibility`,
+    'potion.invisibility.name': `Potion of Invisibility`,
+    'potion.invisibility.splash.name': `Splash Potion of Invisibility`,
+    'potion.invisibility.linger.name': `Lingering Potion of Invisibility`,
+    'potion.jump': `Jump Boost`,
+    'potion.jump.name': `Potion of Leaping`,
+    'potion.jump.splash.name': `Splash Potion of Leaping`,
+    'potion.jump.linger.name': `Lingering Potion of Leaping`,
+    'potion.levitation': `Levitation`,
+    'potion.moveSlowdown': `Slowness`,
+    'potion.moveSlowdown.name': `Potion of Slowness`,
+    'potion.moveSlowdown.splash.name': `Splash Potion of Slowness`,
+    'potion.moveSlowdown.linger.name': `Lingering Potion of Slowness`,
+    'potion.slowFalling': `Slow Falling`,
+    'potion.slowFalling.name': `Potion of Slow Falling`,
+    'potion.slowFalling.splash.name': `Splash Potion of Slow Falling`,
+    'potion.slowFalling.linger.name': `Lingering Potion of Slow Falling`,
+    'potion.moveSpeed': `Speed`,
+    'potion.moveSpeed.name': `Potion of Swiftness`,
+    'potion.moveSpeed.splash.name': `Splash Potion of Swiftness`,
+    'potion.moveSpeed.linger.name': `Lingering Potion of Swiftness`,
+    'potion.nightVision': `Night Vision`,
+    'potion.nightVision.name': `Potion of Night Vision`,
+    'potion.nightVision.splash.name': `Splash Potion of Night Vision`,
+    'potion.nightVision.linger.name': `Lingering Potion of Night Vision`,
+    'potion.poison': `Poison`,
+    'potion.poison.name': `Potion of Poison`,
+    'potion.poison.splash.name': `Splash Potion of Poison`,
+    'potion.poison.linger.name': `Lingering Potion of Poison`,
+    'potion.potency.0': ``,
+    'potion.potency.1': `II`,
+    'potion.potency.2': `III`,
+    'potion.potency.3': `IV`,
+    'potion.potency.4': `V`,
+    'potion.potency.5': `VI`,
+    'potion.awkward.name': `Awkward Potion`,
+    'potion.awkward.splash.name': `Splash Awkward Potion`,
+    'potion.awkward.linger.name': `Lingering Awkward Potion`,
+    'potion.mundane.name': `Mundane Potion`,
+    'potion.mundane.splash.name': `Splash Mundane Potion`,
+    'potion.mundane.linger.name': `Lingering Mundane Potion`,
+    'potion.mundane.extended.name': `Long Mundane Potion`,
+    'potion.mundane.extended.splash.name': `Splash Long Mundane Potion`,
+    'potion.mundane.extended.linger.name': `Lingering Long Mundane Potion`,
+    'potion.thick.name': `Thick Potion`,
+    'potion.thick.splash.name': `Splash Thick Potion`,
+    'potion.thick.linger.name': `Lingering Thick Potion`,
+    'potion.regeneration': `Regeneration`,
+    'potion.regeneration.name': `Potion of Regeneration`,
+    'potion.regeneration.splash.name': `Splash Potion of Regeneration`,
+    'potion.regeneration.linger.name': `Lingering Potion of Regeneration`,
+    'potion.resistance': `Resistance`,
+    'potion.saturation': `Saturation`,
+    'potion.turtleMaster': `Slowness`,
+    'potion.turtleMaster2': `Resistance`,
+    'potion.turtleMaster.name': `Potion of the Turtle Master`,
+    'potion.turtleMaster.splash.name': `Splash Potion of the Turtle Master`,
+    'potion.turtleMaster.linger.name': `Lingering Potion of the Turtle Master`,
+    'potion.waterBreathing': `Water Breathing`,
+    'potion.waterBreathing.name': `Potion of Water Breathing`,
+    'potion.waterBreathing.splash.name': `Splash Potion of Water Breathing`,
+    'potion.waterBreathing.linger.name': `Lingering Potion of Water Breathing`,
+    'potion.weakness': `Weakness`,
+    'potion.weakness.name': `Potion of Weakness`,
+    'potion.weakness.splash.name': `Splash Potion of Weakness`,
+    'potion.weakness.linger.name': `Lingering Potion of Weakness`,
+    'potion.wither': `Wither`,
+    'potion.wither.name': `Potion of Decay`,
+    'potion.wither.splash.name': `Splash Potion of Decay`,
+    'potion.wither.linger.name': `Lingering Potion of Decay`
+}
+
+export const gamemodeTranslations = {
+    'createWorldScreen.gameMode': `Game Mode`,
+    'createWorldScreen.gameMode.default': `Default Game Mode`,
+    'createWorldScreen.gameMode.personal': `Personal Game Mode`,
+    'createWorldScreen.gameMode.adventure': `Adventure`,
+    'createWorldScreen.gameMode.creative': `Creative`,
+    'createWorldScreen.gameMode.survival': `Survival`,
+    'createWorldScreen.gameMode.serverDefault': `Default`
+}
