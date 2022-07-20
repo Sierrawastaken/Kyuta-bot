@@ -4,6 +4,8 @@ import { chatMessage, connMessage, deathMessage, commandOutput, serverInfo } fro
 import { hasAttachment } from '../utils/utils.js'
 import fs from 'fs/promises'
 import formating from '../utils/formating.json' assert { type: "json" }
+
+//change this if you want no randomized endings
 const random = Math.floor(Math.random() * 101)
 
 let bridgedMessage
@@ -14,7 +16,7 @@ export async function serverListen(channelId, discordClient, host, port, version
         host: host,
         port: port,
         version: version,
-        username: `bridgechat${random}`,
+        username: `Kyuta${random}`,
         offline: true
     })
     

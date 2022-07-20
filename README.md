@@ -41,7 +41,7 @@ After [installing the bot](https://github.com/Sierrawastaken/kyuta-bot#installat
         <img src="https://cdn.discordapp.com/attachments/961825797281284137/995834840500949052/WithRegistration.png?size=4096">
     </p>
     
-    As you can see the webhook will change to be more personalized with the registration. Server Admins can also manually register user with the following syntax: `k!register manual gamerTag discordName avatarURL hexColour`
+    As you can see the webhook will change to be more personalized with the registration. Server Admins can also manually register user with the following syntax: `k!register manual gamerTag discordName avatarURL hexColour`.
 
 * ServerInfo
 
@@ -119,7 +119,7 @@ To start the instalation setup you can either download the latest [release](http
         "version": "1.17.40"
     }
 
-Once you have created your config file you can run your bot. First open up a terminal (make sure you are in the right directory) and run `npm install`. This will install all the required packages from the `packages.json` file. After thats finished installing you should be all ready to run the bot - simply run `npm start` to start it up. You should see the terminal log `logged in as Kyuta` or whatever you named your bot. Thats it! Its all set up, simply run `k!help` or read above to use it from there.
+Once you have created your config file you can run your bot. First open up a terminal (make sure you are in the right directory) and run `npm install`. This will install all the required packages from the `packages.json` file. After thats finished installing you should be all ready to run the bot - simply run `npm start` to start it up. You should see the terminal log `logged in as Kyuta` or whatever you named your bot. Thats it! Its all set up, simply run `k!help` or read above to use it from there. You should also note the current releases randomize the ending of the chatbridge name (Kyuta37; Kyuta56), if you host a server with whitelisting it may be easier to have it not randomize the ending. To change that navigate to the `serverConnect.js` file (`./remoteUses/serverConnect.js`) and change the random constant to a number. (Its random for now so that several clients can connect at once without conflicts)
 
 ### Made by Sierra#7079 with love :lovethat:
 Join [Auxo](https://discord.gg/zqaptYWChM) or [Stratos](https://discord.gg/fcfGwZva8d) if you need help with anything!
