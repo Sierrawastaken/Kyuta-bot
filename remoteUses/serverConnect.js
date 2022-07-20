@@ -39,7 +39,7 @@ export async function serverListen(channelId, discordClient, host, port, version
     })
 
     bedrockClient.on('text', (packet) => {
-        if (packet.type === "chat" && packet.source_name != `bridgechat${random}`) {
+        if (packet.type === "chat" && packet.source_name != `Kyuta${random}`) {
             chatMessage(packet.source_name, packet.message, "#52c8db")
         } 
         if (packet.type === "translation") {
@@ -146,56 +146,4 @@ export async function serverListen(channelId, discordClient, host, port, version
             })
         }
     })
-    /*
-    bedrockClient.on('packet', (packet) => {
-        if (packet.data.name === "move_entity_delta") return
-        if (packet.data.name === "move_player") return
-        if (packet.data.name === "tick_sync") return
-        if (packet.data.name === "entity_event") return
-        if (packet.data.name === "level_chunk") return
-        if (packet.data.name === "network_chunk_publisher_update") return
-        if (packet.data.name === "play_status") return
-        if (packet.data.name === "set_entity_data") return
-        if (packet.data.name === "set_entity_motion") return
-        if (packet.data.name === "set_health") return
-        if (packet.data.name === "chunk_radius_update") return
-        if (packet.data.name === "add_entity") return
-        if (packet.data.name === "update_attributes") return
-        if (packet.data.name === "set_time") return
-        if (packet.data.name === "player_list") return
-        if (packet.data.name === "remove_entity") return
-        if (packet.data.name === "text") return
-        if (packet.data.name === "mob_equipment") return
-        if (packet.data.name === "add_player") return
-        if (packet.data.name === "respawn") return
-        if (packet.data.name === "available_commands") return
-        if (packet.data.name === "crafting_data") return
-        if (packet.data.name === "player_hotbar") return
-        if (packet.data.name === "inventory_content") return
-        if (packet.data.name === "player_fog") return
-        if (packet.data.name === "available_entity_identifiers") return
-        if (packet.data.name === "biome_definition_list") return
-        if (packet.data.name === "adventure_settings") return
-        if (packet.data.name === "game_rules_changed") return
-        if (packet.data.name === "set_commands_enabled") return
-        if (packet.data.name === "set_difficulty") return
-        if (packet.data.name === "set_spawn_position") return
-        if (packet.data.name === "item_component") return
-        if (packet.data.name === "start_game") return
-        if (packet.data.name === "level_sound_event") return
-        if (packet.data.name === "network_settings") return
-        if (packet.data.name === "resource_packs_info") return
-        if (packet.data.name === "server_to_client_handshake") return
-        if (packet.data.name === "creative_content") return
-        if (packet.data.name === "animate") return
-        if (packet.data.name === "update_block") return
-        if (packet.data.name === "level_event") return
-        if (packet.data.name === "add_item_entity") return
-        if (packet.data.name === "update_player_game_type") return
-        if (packet.data.name === "inventory_transaction") return
-        if (packet.data.name === "inventory_slot") return
-        if (packet.data.name === "take_item_entity") return
-
-        console.log(packet)
-    }) */
 }
