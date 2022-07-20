@@ -87,7 +87,7 @@ Once you gave finished the setup you are ready to work! Here are a few extra tid
 
 # Installation
 
-To start the instalation setup download the latest [release](https://github.com/Sierrawastaken/Kyuta-bot/releases) and unzip it. Then once inside the folder create a new file called `config.json` and create a new config file using this format - you dont have to copy the comments though as they will throw some errors.
+To start the instalation setup you can either download the latest [release](https://github.com/Sierrawastaken/Kyuta-bot/releases) and unzip it, or clone the latest commit with `git clone https://github.com/Sierrawastaken/Kyuta-bot.git`, then cd into the directory (This might not be the most stable so i would recommend using the latest release). Then once inside the folder create a new file called `config.json` and create a new config file using this format - you dont have to copy the comments though as they will throw some errors.
     
     {   
         // fill these values out with yours
