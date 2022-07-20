@@ -39,6 +39,18 @@ After [installing the bot](https://github.com/Sierrawastaken/kyuta-bot#installat
     
     As you can see the webhook will change to be more personalized with the registration. Server Admins can also manually register user with the following syntax: `k!register manual nickname avatarURL hexcolour`
 
+* ServerInfo
+
+    Before using serverInfo you have to be listening to a server, once you are listening just run `k!serverInfo` to bring up and embed with important information on the server. If `detailedInfo` in `config.json` is set to true more sensitve information will be displayed that could possible cause issues if public.
+
+    <p align="center">
+        <img src="https://cdn.discordapp.com/attachments/961825797281284137/999102276511748116/Screenshot_2022-07-19_165529.png?size=4096">
+    </p>
+
+    <p align="center">
+        <img src="https://cdn.discordapp.com/attachments/961825797281284137/999104972526456963/Screenshot_2022-07-19_1706212.png?size=4096">
+    </p>
+
 Once you gave finished the setup you are ready to work! Here are a few extra tidbits i dont know where else to put:
 
 * Sadly there are no ways currently to send an image ingame so this will have to suffice

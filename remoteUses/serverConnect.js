@@ -1,6 +1,6 @@
 import bedrock from 'bedrock-protocol'
 import config from '../config.json' assert { type: "json" }
-import { chatMessage, connMessage, deathMessage, commandOutput } from '../utils/messageTemplates.js'
+import { chatMessage, connMessage, deathMessage, commandOutput, serverInfo } from '../utils/messageTemplates.js'
 import { hasAttachment } from '../utils/utils.js'
 import fs from 'fs/promises'
 import formating from '../utils/formating.json' assert { type: "json" }
@@ -17,7 +17,25 @@ export async function serverListen(channelId, discordClient, host, port, version
         username: `bridgechat${random}`,
         offline: true
     })
-   
+    
+    bedrockClient.on('packet', async (packet) => {
+        if (packet.data.name != 'start_game') return
+        
+        let json = JSON.stringify(packet.data, (key, value) =>
+            typeof value === "bigint" ? value.toString() + "n" : value
+        , 4)
+
+        await fs.unlink('./utils/serverDat.json', function (err) {
+            if (err) throw new Error
+        })
+
+        await fs.appendFile('./utils/serverDat.json', json, (err) => {
+            if (err) throw new Error
+        })
+
+        return
+    })
+
     bedrockClient.on('text', (packet) => {
         if (packet.type === "chat" && packet.source_name != `bridgechat${random}`) {
             chatMessage(packet.source_name, packet.message, "#52c8db")
@@ -39,9 +57,17 @@ export async function serverListen(channelId, discordClient, host, port, version
     })
 
     discordClient.on('messageCreate', async (message) => {
+        message.content = message.content.toLowerCase()
         if (message.channel.id != channelId) return
         if (message.author.bot) return
         
+        if (message.content === `${config.prefix}serverinfo` &&
+            bedrockClient.status != 3 ) {
+            return message.channel.send("This command can only be ran once you are listening to a server")
+        } else {
+            serverInfo(message.channel)
+        }
+
         if (message.content === `${config.prefix}break`) {
             bedrockClient.disconnect()
             message.channel.send("Stopped listening to the server!")
@@ -118,7 +144,7 @@ export async function serverListen(channelId, discordClient, host, port, version
             })
         }
     })
-
+    /*
     bedrockClient.on('packet', (packet) => {
         if (packet.data.name === "move_entity_delta") return
         if (packet.data.name === "move_player") return
@@ -169,5 +195,5 @@ export async function serverListen(channelId, discordClient, host, port, version
         if (packet.data.name === "take_item_entity") return
 
         console.log(packet)
-    })
+    }) */
 }

@@ -3,6 +3,7 @@ import webhook from 'webhook-discord'
 import { userCorrection, parseCommand } from './utils.js'
 import users from './users.json' assert { type: "json" }
 import discord from 'discord.js'
+import serverData from './serverDat.json' assert { type: "json" }
 
 const Hook = new webhook.Webhook(config.webhook)
 const now = new Date().toUTCString()
@@ -65,6 +66,40 @@ export function commandOutput(packet, colour) {
         .setFooter(`- ${now}`, config.botAv)
 
     return Hook.send(message)
+}
+
+export function serverInfo(channel) {
+    let embed = new discord.MessageEmbed()
+            .setColor("#52c8db")
+            .setTitle("Important server information")
+            .setDescription(`${serverData.params.world_name}:`)
+            .addFields(
+                { name: "Commands enabled", value: `${serverData.params.enable_commands}‎`, inline: true },
+                { name: "Gamemode", value: `${serverData.params.world_gamemode}‎`, inline: true },
+                { name: "Difficulty", value: `${serverData.params.difficulty}‎`, inline: true },
+                { name: "Version", value: `${serverData.params.engine}‎`, inline: true },
+                { name: "Achievements Disabled", value: `${serverData.params.achievements_disabled}‎`, inline: true },
+                { name: "Force texturepacks", value: `${serverData.params.is_texturepacks_required}‎`, inline: true }
+            )
+            .setFooter({
+                text: "Created by Sierra#7079",
+                iconURL: config.botAv
+            })
+    
+    if (config.detailedInfo) {
+        embed.addFields(
+            { name: "World Spawn", value: `${serverData.params.spawn_position.x}, ${serverData.params.spawn_position.y}, ${serverData.params.spawn_position.z}‎`, inline: true },
+            { name: "New Nether", value: `${serverData.params.is_new_nether}‎`, inline: true },
+            { name: "Level Id", value: `${serverData.params.level_id}‎`, inline: true },
+            { name: "Movement Authority", value: `${serverData.params.movement_authority}‎`, inline: true },
+            { name: "Current Tick", value: `${serverData.params.current_tick[1]}‎`, inline: true },
+            { name: "Enchantment Seed", value: `${serverData.params.enchantment_seed}‎`, inline: true },
+            { name: "World Size", value: `${serverData.params.limited_world_length} * ${serverData.params.limited_world_width}‎`, inline: true },
+            { name: "Seed", value: `${serverData.params.seed}‎`, inline: true }
+        )
+    }
+
+        return channel.send({ embeds: [embed] })
 }
 
 export function helpEmbed(channel) {
