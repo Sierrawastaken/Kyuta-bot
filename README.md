@@ -24,12 +24,16 @@ After [installing the bot](https://github.com/Sierrawastaken/kyuta-bot#installat
 
     To ping a server simply run `k!ping` with the same paramaters as listen, except the version isnt needed. The ping command will return basic information about the queried server such as: the Header, Players Online, Max PLayers, Gamemode, Server ID, and Protocol
 
+    <p align="center">
+        <img src="https://cdn.discordapp.com/attachments/961825797281284137/999114023440232448/unknown.png?size=4096">
+    </p
+
 * Register
 
     The Register command is an optional command that will register information on the user running the command to an internal database to personalize their webhooks. To use the command properly nickname yourself as your ingame name and run the command. Your nickname, username, highest role colour, and your profile picture will be stored to customize your webhooks and help people know who is who. These two pictures below demonstate this, the first is without registration and the second is with registration
 
 
-     <p align="center">
+    <p align="center">
         <img src="https://cdn.discordapp.com/attachments/961825797281284137/995834826403876864/WithoutRegistration.png?size=4096">
     </p>
 
@@ -41,7 +45,7 @@ After [installing the bot](https://github.com/Sierrawastaken/kyuta-bot#installat
 
 * ServerInfo
 
-    Before using serverInfo you have to be listening to a server, once you are listening just run `k!serverInfo` to bring up and embed with important information on the server. If `detailedInfo` in `config.json` is set to true more sensitve information will be displayed that could possible cause issues if public.
+    Before using serverInfo you have to be listening to a server, once you are listening just run `k!serverInfo` to bring up and embed with important information on the server. If `detailedInfo` in `config.json` is set to true, more sensitve information will be displayed that could possibly cause issues if public.
 
     <p align="center">
         <img src="https://cdn.discordapp.com/attachments/961825797281284137/999102276511748116/Screenshot_2022-07-19_165529.png?size=4096">
@@ -104,6 +108,9 @@ To start the instalation setup download the latest [release](https://github.com/
         // if set to true commands run will be output to the discord
         // through the webhook
         "sendCommands": true,
+
+        // if set to true serverInfo will display more sensitive information
+        "detailedInfo": true,
 
         // this will be used if DynamicListening is set to false
         // or if you enter no paramaters

@@ -79,8 +79,7 @@ discordClient.on('messageCreate', async (message) => {
     }
 
     if (msgStr === "ping") {
-       let response = pingServer(args[0], parseInt(args[1]))
-       return message.channel.send({ embeds: [response] })
+       return pingServer(args[0], parseInt(args[1]), message.channel)
     }
 
     if (msgStr === "help") {
