@@ -9,13 +9,12 @@ const Hook = new webhook.Webhook(config.webhook)
 const now = new Date().toUTCString()
 
 export function chatMessage(user, content, colour) {
-    let avatar, gamename
+    let avatar
     for (let i = 0; i < users.length; i++) {
-        gamename = users[i].name.split(' ')
-        if (gamename[0] === user) {
+        if (users[i].gamertag === user) {
             avatar = users[i].avatar
             colour = users[i].colour
-            user = users[i].name
+            user = `${users[i].gamertag} - ${users[i].name}`
             break
         }
     }

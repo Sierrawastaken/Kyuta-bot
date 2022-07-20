@@ -32,17 +32,20 @@ discordClient.on('messageCreate', async (message) => {
             
             if (args[0] === "manual" && message.member.roles.has(config.adminRoleId)) {
                 users.push({
-                    name: `${args[1]} - ${args[2]}`,
+                    gamertag: args[1],
+                    name: args[2],
                     avatar: args[3],
                     colour: args[4]
                 })
             } else {
                 for (let i = 0; i < bruh.length; i++) {
-                    if (bruh[i].name === message.member.nickname) return message.channel.send("You have already been registered!")   
+                    console.log(users[i].name)
+                    if (users[i].gamertag === message.member.nickname) return message.channel.send("You have already been registered!")   
                 }
 
                 users.push({
-                    name: `${message.member.nickname} - ${message.author.username}`,
+                    gamertag: `${message.member.nickname}`,
+                    name: `${message.author.username}`,
                     avatar: message.author.avatarURL(),
                     colour: message.member.roles.color.hexColor
                 })

@@ -41,7 +41,7 @@ After [installing the bot](https://github.com/Sierrawastaken/kyuta-bot#installat
         <img src="https://cdn.discordapp.com/attachments/961825797281284137/995834840500949052/WithRegistration.png?size=4096">
     </p>
     
-    As you can see the webhook will change to be more personalized with the registration. Server Admins can also manually register user with the following syntax: `k!register manual nickname avatarURL hexcolour`
+    As you can see the webhook will change to be more personalized with the registration. Server Admins can also manually register user with the following syntax: `k!register manual gamerTag discordName avatarURL hexColour`
 
 * ServerInfo
 
