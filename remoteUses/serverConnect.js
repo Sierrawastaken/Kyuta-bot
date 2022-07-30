@@ -21,23 +21,52 @@ export async function serverListen(channelId, discordClient, host, port, version
     })
     
     bedrockClient.on('packet', async (packet) => {
-        if (packet.data.name != 'start_game') return
-        
+        if (packet.name != 'start_game') return
+
+
         let json = JSON.stringify(packet.data, (key, value) =>
             typeof value === "bigint" ? value.toString() + "n" : value
         , 4)
 
-        await fs.unlink('./utils/serverDat.json', function (err) {
+        await fs.unlink('./remoteUses/serverDat.json', function (err) {
             if (err) throw new Error
         })
 
-        await fs.appendFile('./utils/serverDat.json', json, (err) => {
+        await fs.appendFile('./remoteUses/serverDat.json', json, (err) => {
             if (err) throw new Error
         })
 
         return
     })
+    /*
+    //SCOREBOARDS
 
+    //get unique user entity ID
+    bedrockClient.on('add_player', async (packet) => {
+        
+        let json = JSON.stringify(packet.username && packet.entity_id_self, (key, value) =>
+            typeof value === "bigint" ? value.toString() + "n" : value
+        , 4)
+
+        await fs.appendFile('./usertempdata.json', json, (err) => {
+            if (err) throw new Error
+        })
+    })
+
+    //actually get the broken block
+    bedrockClient.on('update_block', (updatePacket) => {
+        // 134 is the runtime id that indicates its a broken block
+        if (updatePacket.block_runtime_id != 134) return
+
+        //checking for when an entity is spawned
+        bedrockClient.once('add_item_entity', (itemPacket) => {
+            let updateCoords = [updatePacket.position.x, updatePacket.position.y, updatePacket.position.z]
+            let itemCoords = [itemPacket.position.x, itemPacket.position.y, itemPacket.position.z]
+        })
+    })
+    */
+    
+    
     bedrockClient.on('text', (packet) => {
         if (packet.type === "chat" && packet.source_name != `Kyuta${random}`) {
             chatMessage(packet.source_name, packet.message, "#52c8db")
@@ -62,12 +91,10 @@ export async function serverListen(channelId, discordClient, host, port, version
         message.content = message.content.toLowerCase()
         if (message.channel.id != channelId) return
         if (message.author.bot) return
-        
+
         if (message.content === `${config.prefix}serverinfo` &&
-            bedrockClient.status != 3 ) {
-            return message.channel.send("This command can only be ran once you are listening to a server")
-        } else {
-            serverInfo(message.channel)
+            bedrockClient.status === 3 ) {
+            return serverInfo(message.channel)
         }
 
         if (message.content === `${config.prefix}break`) {
@@ -84,6 +111,7 @@ export async function serverListen(channelId, discordClient, host, port, version
 
         if (message.content.startsWith(config.runRawPrefix)) {
             let command = message.content.slice(config.runRawPrefix.length).trim()
+            if(command.startsWith("/")) command = command.slice(1)
 
             bedrockClient.queue('command_request', {
             command: `/${command}`,
@@ -104,7 +132,6 @@ export async function serverListen(channelId, discordClient, host, port, version
             if (message.content.startsWith(formating[i].discord)) {
                 bridgedMessage = message.content.slice(formating[i].discord.length, -formating[i].discord.length)
                 bridgedMessage = formating[i].minecraft + bridgedMessage + "§r"
-                console.log(bridgedMessage)
                 break
             } else {
                 bridgedMessage = message.content

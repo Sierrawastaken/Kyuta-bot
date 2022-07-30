@@ -3,7 +3,7 @@ import webhook from 'webhook-discord'
 import { userCorrection, parseCommand } from './utils.js'
 import users from './users.json' assert { type: "json" }
 import discord from 'discord.js'
-import serverData from './serverDat.json' assert { type: "json" }
+import serverData from '../remoteUses/serverDat.json' assert { type: "json" }
 
 const Hook = new webhook.Webhook(config.webhook)
 const now = new Date().toUTCString()
