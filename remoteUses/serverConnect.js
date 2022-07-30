@@ -64,7 +64,7 @@ export async function serverListen(channelId, discordClient, host, port, version
         if (message.author.bot) return
         
         if (message.content === `${config.prefix}serverinfo` &&
-            bedrockClient.status != 3 ) {
+            bedrockClient.status !=== 3 ) {
             return message.channel.send("This command can only be ran once you are listening to a server")
         } else {
             serverInfo(message.channel)
