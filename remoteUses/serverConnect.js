@@ -1,6 +1,6 @@
 import bedrock from 'bedrock-protocol'
 import config from '../config.json' assert { type: "json" }
-import { chatMessage, connMessage, deathMessage, commandOutput, serverInfo } from '../utils/messageTemplates.js'
+import { chatMessage, connMessage, deathMessage, commandOutput } from '../utils/messageTemplates.js'
 import { hasAttachment } from '../utils/utils.js'
 import fs from 'fs/promises'
 import formating from '../utils/formating.json' assert { type: "json" }
@@ -92,13 +92,13 @@ export async function serverListen(channelId, discordClient, host, port, version
         if (message.channel.id != channelId) return
         if (message.author.bot) return
 
-        if (message.content === `${config.prefix}serverinfo` &&
-            bedrockClient.status === 3 ) {
-            return serverInfo(message.channel)
-        }
-
         if (message.content === `${config.prefix}break`) {
             bedrockClient.disconnect()
+
+            await fs.unlink('./remoteUses/serverDat.json', function (err) {
+                if (err) throw new Error
+            })
+    
             message.channel.send("Stopped listening to the server!")
             console.log("Stopped listening to the server")
             return

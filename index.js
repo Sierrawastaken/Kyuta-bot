@@ -4,9 +4,11 @@ import { serverListen } from './remoteUses/serverConnect.js'
 import fs from "fs"
 import { pingServer } from './remoteUses/ping.js'
 import bruh from './utils/users.json' assert { type: "json" }
-import { helpEmbed, serverHelp } from './utils/messageTemplates.js'
+import { helpEmbed, serverHelp, serverInfo } from './utils/messageTemplates.js'
 
 let host, port, version
+
+var isListening = false
 
 export const discordClient = new discord.Client({
     intents:[
@@ -79,10 +81,19 @@ discordClient.on('messageCreate', async (message) => {
             message.channel.send(`Started listening to ${config.host}:${config.port} on version ${config.version}`)
         }
         
+        isListening = true
     }
 
     if (msgStr === "ping") {
        return pingServer(args[0], parseInt(args[1]), message.channel)
+    }
+
+    if (msgStr === "serverinfo") {
+        if (isListening) {
+            return serverInfo(message.channel)
+        } else {
+            return message.channel.send("This command can only be ran if you are listening to a server")
+        }
     }
 
     if (msgStr === "help") {

@@ -48,7 +48,6 @@ export function deathMessage(packet, colour) {
 
 export function commandOutput(packet, colour) {
     let response, user, title
-    //[ 'ttvsierra117', ': ', 'commands.summon.success', undefined, ']' ]
     response = parseCommand(JSON.parse(packet))
     
     if (response[0][0] === "Unknown") {
