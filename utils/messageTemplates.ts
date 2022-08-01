@@ -1,14 +1,21 @@
-import config from '../config.json' assert { type: "json" }
-import webhook from 'webhook-discord'
-import { userCorrection, parseCommand } from './utils.js'
-import users from './users.json' assert { type: "json" }
-import discord from 'discord.js'
-import serverData from '../remoteUses/serverDat.json' assert { type: "json" }
+const config = require("../../data/config.json")
+const webhook = require("webhook-discord")
+import { userCorrection, parseCommand } from './utils'
+const users = require('../../data/users.json')
+import { MessageEmbed, Message } from 'discord.js'
+const serverData = require("../../data/serverDat.json")
 
 const Hook = new webhook.Webhook(config.webhook)
 const now = new Date().toUTCString()
 
-export function chatMessage(user, content, colour) {
+/**
+ * Helps translate a packet message into a webhook
+ * @param user - who sent the message
+ * @param content - message content
+ * @param colour - the colour you want the embed
+ * @returns Sent webhook
+ */
+export function chatMessage(user: string, content: string, colour: string) {
     let avatar
     for (let i = 0; i < users.length; i++) {
         if (users[i].gamertag === user) {
@@ -28,7 +35,14 @@ export function chatMessage(user, content, colour) {
     return Hook.send(message)
 }
 
-export function connMessage(user, action, colour) {
+/**
+ * Translates a join/leave packet into a webhook
+ * @param user - who connected/disconnected
+ * @param action - connection/disconnection
+ * @param colour - colour of the embed
+ * @returns Sent webhook
+ */
+export function connMessage(user: string, action: string, colour: string) {
     let message = new webhook.MessageBuilder()
         .setName("Server")
         .setColor(colour)
@@ -37,7 +51,13 @@ export function connMessage(user, action, colour) {
     return Hook.send(message)
 }
 
-export function deathMessage(packet, colour) {
+/**
+ * Translates a death message into a webhook
+ * @param packet - the entire packet with the rawdeath message
+ * @param colour - the colour of the embed
+ * @returns Sent webhook
+ */
+export function deathMessage(packet: JSON, colour: string) {
     let message = new webhook.MessageBuilder()
         .setName("Server")
         .setColor(colour)
@@ -46,8 +66,14 @@ export function deathMessage(packet, colour) {
     return Hook.send(message)
 }
 
-export function commandOutput(packet, colour) {
-    let response, user, title
+/**
+ * Translates the command packet into a webhook
+ * @param packet - the packet.message that contains the rawcommand string
+ * @param colour - the colour of the embed
+ * @returns Sent webhook
+ */
+export function commandOutput(packet: string, colour: string) {
+    let response, title
     response = parseCommand(JSON.parse(packet))
     
     if (response[0][0] === "Unknown") {
@@ -66,8 +92,13 @@ export function commandOutput(packet, colour) {
     return Hook.send(message)
 }
 
-export function serverInfo(channel) {
-    let serverInfoEmbed = new discord.MessageEmbed()
+/**
+ * Sends a server info embed to the channel it was triggered in
+ * @param message - the triggering message to return to
+ * @returns Sent MessageEmbed
+ */
+export function serverInfo(message: Message) {
+    let serverInfoEmbed = new MessageEmbed()
             .setColor("#52c8db")
             .setTitle("Important server information")
             .setDescription(`${serverData.params.world_name}:`)
@@ -97,11 +128,16 @@ export function serverInfo(channel) {
         )
     }
 
-        return channel.send(serverInfoEmbed)
+        return message.channel.send(serverInfoEmbed)
 }
 
-export function helpEmbed(channel) {
-    let helpEmbed = new discord.MessageEmbed()
+/**
+ * Sends a help embed to the channel it was triggered in
+ * @param message - the triggering message to return to
+ * @returns Sent embed
+ */
+export function helpEmbed(message: Message) {
+    let helpEmbed = new MessageEmbed()
             .setColor("#52c8db")
             .setTitle("Kyuta Help Commands")
             .setURL("https://github.com/Sierrawastaken/Kyuta-bot")
@@ -119,11 +155,16 @@ export function helpEmbed(channel) {
                 iconURL: config.botAv
             })
 
-        return channel.send(helpEmbed)
+        return message.channel.send(helpEmbed)
 }
 
-export function serverHelp(channel) {
-    let serverEmbed = new discord.MessageEmbed()
+/**
+ * Sends a server help embed to the channel it was triggered in
+ * @param message - the triggering message to return to
+ * @returns Sent embed
+ */
+export function serverHelp(message: Message) {
+    let serverEmbed = new MessageEmbed()
             .setColor("#52c8db")
             .setTitle("Kyuta Server Listening Commands")
             .setURL("https://github.com/Sierrawastaken/Kyuta-bot#commands---usage")
@@ -139,5 +180,5 @@ export function serverHelp(channel) {
                 iconURL: config.botAv
             })
 
-        return channel.send(serverEmbed)
+        return message.channel.send(serverEmbed)
 }

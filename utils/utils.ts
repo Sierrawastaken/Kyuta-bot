@@ -1,11 +1,21 @@
 import { deathTranslations, commandTranslations, potionTranslations, gamemodeTranslations } from './packetTranslations.js'
 
-export function hasAttachment(message) {
-    message = message.toJSON()
-    return (message.attachments.length > 0 || message.embeds.length > 0 ? true : false)
+/**
+ * Determines whether the message has an attachment 
+ * @param message - a message
+ * @returns true / false on whether the message has an attachment
+ */
+export function hasAttachment(message: any) {
+    message = message.toJSON()                                             //more shit we cant do in v12
+    return (message.attachments.length > 0 || message.embeds.length > 0 /*|| message.stickers.length > 0*/ ? true : false)
 }
 
-export function userCorrection(packet) {
+/**
+ * Takes an entire packet and translates the varibles and placeholders for easier readability
+ * @param packet - the entire packet to correct
+ * @returns String with a corrected death message
+ */
+export function userCorrection(packet: any) {
     let result = deathTranslations[packet.message]
 
     if (packet.parameters.length > 1 && !packet.parameters[1].startsWith("%") && !packet.parameters[1].endsWith(".name")) {
@@ -17,7 +27,12 @@ export function userCorrection(packet) {
     }
 }
 
-export function parseCommand(input) {
+/**
+ * Takes a packet.message of a command response and parses it for readability
+ * @param input - packet.message with raw command
+ * @returns Array with [user who ran command, corrected command string]
+ */
+export function parseCommand(input: any) {
 // {"rawtext":[{"text":"§7§o["},{"translate":"ttvsierra117"},{"text":": "},{"translate":"commands.summon.success","with":{"rawtext":null}},{"text":"]"}]}    
     if (input.rawtext[0].text === "§7§o[") {
         let json = [

@@ -1,16 +1,24 @@
-import bedrock from 'bedrock-protocol'
-import config from '../config.json' assert { type: "json" }
-import { chatMessage, connMessage, deathMessage, commandOutput } from '../utils/messageTemplates.js'
-import { hasAttachment } from '../utils/utils.js'
-import fs from 'fs/promises'
-import formating from '../utils/formating.json' assert { type: "json" }
+const bedrock = require("bedrock-protocol")
+const config = require("../../data/config.json")
+import { chatMessage, connMessage, deathMessage, commandOutput } from '../utils/messageTemplates'
+import { hasAttachment } from '../utils/utils'
+import fs from 'fs'
+import { Client } from 'discord.js'
+const formating = require("../../data/formating.json")
 
 //change this if you want no randomized endings
 const random = Math.floor(Math.random() * 101)
 
-let bridgedMessage
-
-export async function serverListen(channelId, discordClient, host, port, version) {
+let bridgedMessage: string
+/**
+ * Initiates a client to connect to a server bridge the messages between discord/minecraft
+ * @param channelId - message.channel.id of the channel you wish to start listening to
+ * @param discordClient - the discord client object
+ * @param host - the host you wish to connect to
+ * @param port - the port of the host you wish to connect to
+ * @param version - the version of the server you wish to connect to
+ */
+export async function serverListen(channelId: string, discordClient: Client, host: string, port: number, version: string) {
     
     const bedrockClient = bedrock.createClient({
         host: host,
@@ -20,7 +28,7 @@ export async function serverListen(channelId, discordClient, host, port, version
         offline: true
     })
 
-    bedrockClient.on('packet', async (packet) => {
+    bedrockClient.on('packet', async (packet: any) => {
         if (packet.name != 'start_game') return
 
 
@@ -28,11 +36,11 @@ export async function serverListen(channelId, discordClient, host, port, version
             typeof value === "bigint" ? value.toString() + "n" : value
         , 4)
 
-        await fs.unlink('./remoteUses/serverDat.json', function (err) {
+        fs.unlink('../../data/serverDat.json', function (err) {
             if (err) throw new Error
         })
 
-        await fs.appendFile('./remoteUses/serverDat.json', json, (err) => {
+        fs.appendFile('../../data/serverDat.json', json, (err) => {
             if (err) throw new Error
         })
 
@@ -65,9 +73,8 @@ export async function serverListen(channelId, discordClient, host, port, version
         })
     })
     */
-    
-    
-    bedrockClient.on('text', (packet) => {
+
+    bedrockClient.on('text', (packet: any) => {
         if (packet.type === "chat" && packet.source_name != `Kyuta${random}`) {
             chatMessage(packet.source_name, packet.message, "#52c8db")
         } 
@@ -82,7 +89,10 @@ export async function serverListen(channelId, discordClient, host, port, version
         }
         if (packet.type === "json") {
             if (config.sendCommands) commandOutput(packet.message, "#bd4f0d")
-            fs.appendFile('./utils/commandLog.txt', `${packet.message}`)
+
+            fs.appendFile('../../data/commandLog.txt', `${packet.message}`, (err) => {
+                if (err) throw new Error
+            })
         }
         
     })
@@ -95,10 +105,6 @@ export async function serverListen(channelId, discordClient, host, port, version
 
         if (message.content === `${config.prefix}break`) {
             bedrockClient.disconnect()
-
-            await fs.unlink('./remoteUses/serverDat.json', function (err) {
-                if (err) throw new Error
-            })
     
             message.channel.send("Stopped listening to the server!")
             console.log("Stopped listening to the server")
@@ -145,7 +151,7 @@ export async function serverListen(channelId, discordClient, host, port, version
             bridgedMessage + " (and an image)"
         }
 
-        if (!message.reference) {
+        /*if (!message.reference) {*/
             bedrockClient.queue('command_request', {
                 command: `/tellraw @a {"rawtext":[{"text":"§r§4[Discord]§f ${message.author.username}: ${bridgedMessage}"}]}`,
                 origin: {
@@ -157,7 +163,10 @@ export async function serverListen(channelId, discordClient, host, port, version
                 },
                 interval: false,
             })
-        } else {
+        /*} else {
+
+            so yeah ig "fetchReference()" just isnt a thing in v12? so ig we arent do this
+
             let repliedMessage = await message.fetchReference()
             let replie = repliedMessage.author.username
 
@@ -172,6 +181,6 @@ export async function serverListen(channelId, discordClient, host, port, version
                 },
                 interval: false,
             })
-        }
+        }*/
     })
 }

@@ -1,4 +1,4 @@
-export const deathTranslations =  {
+export const deathTranslations: { [key: string]: any } =  {
     'death.attack.anvil': `%1% was squashed by a falling anvil`,
     'death.attack.arrow': `%1% was shot by %2%`,
     'death.attack.bullet': `%1% was sniped by %2%`,
@@ -34,7 +34,7 @@ export const deathTranslations =  {
     'death.fell.accident.generic': `%1% fell from a high place`,
 }
 
-export const commandTranslations =  {
+export const commandTranslations: { [key: string]: any } = {
     'commands.ability.description': `Sets a player's ability.`,
     'commands.ability.noability': `No ability called '%1$s' is available`,
     'commands.ability.granted': `The '%1$s' ability has been granted to you`,
@@ -827,7 +827,7 @@ export const commandTranslations =  {
     'commands.xp.success.negative.levels': `Taken %1$d levels from %2$s`
 }
 
-export const potionTranslations = {
+export const potionTranslations: { [key: string]: any } = {
     'potion.absorption': `Absorption`,
     'potion.blindness': `Blindness`,
     'potion.conduitPower': `Conduit Power`,
@@ -929,7 +929,7 @@ export const potionTranslations = {
     'potion.wither.linger.name': `Lingering Potion of Decay`
 }
 
-export const gamemodeTranslations = {
+export const gamemodeTranslations: { [key: string]: any } = {
     'createWorldScreen.gameMode': `Game Mode`,
     'createWorldScreen.gameMode.default': `Default Game Mode`,
     'createWorldScreen.gameMode.personal': `Personal Game Mode`,

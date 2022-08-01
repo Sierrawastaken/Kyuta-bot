@@ -1,38 +1,32 @@
-import discord from 'discord.js'
-import config from './config.json' assert { type: "json" }
-import { serverListen } from './remoteUses/serverConnect.js'
-import fs from "fs"
-import { pingServer } from './remoteUses/ping.js'
-import bruh from './utils/users.json' assert { type: "json" }
-import { helpEmbed, serverHelp, serverInfo } from './utils/messageTemplates.js'
+const config = require("../data/config.json")
+import { serverListen } from './remoteUses/serverConnect'
+const fs = require("fs")
+import { pingServer } from './remoteUses/ping'
+const bruh = require("../data/users.json")
+import { helpEmbed, serverHelp, serverInfo } from './utils/messageTemplates'
+import { Message, Client} from 'discord.js'
 
-let host, port, version
+let host: string, port: number, version: string
 
 var isListening = false
 
-export const discordClient = new discord.Client(/*{
-    intents:[
-        "GUILDS",
-        "GUILD_MESSAGES",
-        "GUILD_MEMBERS",
-    ]
-}*/)
+export const discordClient = new Client()
 
 discordClient.on("ready", () => {
-    console.log(`logged in as ${discordClient.user.username}`)
+    console.log(`logged in as ${discordClient.user!.username}`)
 })
 
-discordClient.on('message', async (message) => {
+discordClient.on('message', async (message: Message) => {
     if (!message.content.startsWith(config.prefix)) return  
     const args = message.content.slice(config.prefix.length).trim().split(/ +/g)
-    const msgStr = args.shift().toLowerCase()
+    const msgStr = args.shift()!.toLowerCase()
     
     if (msgStr === "register") {
-        fs.readFile('./utils/users.json', 'utf8', (err, data) => {
-            if (err) throw new Error(err)
+        fs.readFile('./utils/users.json', 'utf8', (err: string, data: string) => {
+            if (err) throw new Error()
             const users = JSON.parse(data)
             
-            if (args[0] === "manual" && message.member.roles.has(config.adminRoleId)) {
+            if (args[0] === "manual" && message.member!.hasPermission("ADMINISTRATOR")) {
                 users.push({
                     gamertag: args[1],
                     name: args[2],
@@ -42,20 +36,18 @@ discordClient.on('message', async (message) => {
             } else {
                 for (let i = 0; i < bruh.length; i++) {
                     console.log(users[i].name)
-                    if (users[i].gamertag === message.member.nickname) return message.channel.send("You have already been registered!")   
+                    if (users[i].gamertag === message.member!.nickname) return message.channel.send("You have already been registered!")   
                 }
 
                 users.push({
-                    gamertag: `${message.member.nickname}`,
+                    gamertag: `${message.member!.nickname}`,
                     name: `${message.author.username}`,
                     avatar: message.author.avatarURL(),
-                    colour: message.member.roles.color.hexColor
+                    colour: message.member!.roles.color!.hexColor
                 })
             }
 
-            fs.writeFileSync('./utils/users.json', JSON.stringify(users, null, 4), (err) => {
-                if (err) throw new Error(err)
-            })
+            fs.writeFileSync('./utils/users.json', JSON.stringify(users, null, 4))
 
             return message.channel.send("User registered!")
         })
@@ -64,10 +56,10 @@ discordClient.on('message', async (message) => {
 
     if (msgStr === "listen") {
         if (args[0]) {
-            host = args.shift()
-            port = parseInt(args.shift())
-            version = args.shift()
-            serverListen(message.channel.id, discordClient, host, port, version).catch((err) => {
+            host = args.shift()!
+            port = parseInt(args.shift()!)
+            version = args.shift()!
+            serverListen(message.channel.id, discordClient, host, port, version).catch( () => {
                 return message.channel.send("An error has occured")
             })
             message.channel.send(`Started listening to ${host}:${port} on version ${version}`)
@@ -85,21 +77,21 @@ discordClient.on('message', async (message) => {
     }
 
     if (msgStr === "ping") {
-       return pingServer(args[0], parseInt(args[1]), message.channel)
+       return pingServer(args[0], parseInt(args[1]), message)
     }
 
     if (msgStr === "serverinfo") {
         if (isListening) {
-            return serverInfo(message.channel)
+            return serverInfo(message)
         } else {
             return message.channel.send("This command can only be ran if you are listening to a server")
         }
     }
 
     if (msgStr === "help") {
-        return helpEmbed(message.channel)
+        return helpEmbed(message)
     } if (msgStr === "listenhelp") {
-        return serverHelp(message.channel)
+        return serverHelp(message)
     }
 })
 

@@ -3,3 +3,4 @@ TODO
 config.json
 commandlog.txt
 package-lock.json
+dist/
