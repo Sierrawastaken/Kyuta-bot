@@ -10,19 +10,19 @@ let host, port, version
 
 var isListening = false
 
-export const discordClient = new discord.Client({
+export const discordClient = new discord.Client(/*{
     intents:[
         "GUILDS",
         "GUILD_MESSAGES",
         "GUILD_MEMBERS",
     ]
-})
+}*/)
 
 discordClient.on("ready", () => {
     console.log(`logged in as ${discordClient.user.username}`)
 })
 
-discordClient.on('messageCreate', async (message) => {
+discordClient.on('message', async (message) => {
     if (!message.content.startsWith(config.prefix)) return  
     const args = message.content.slice(config.prefix.length).trim().split(/ +/g)
     const msgStr = args.shift().toLowerCase()
@@ -67,7 +67,7 @@ discordClient.on('messageCreate', async (message) => {
             host = args.shift()
             port = parseInt(args.shift())
             version = args.shift()
-            serverListen(message.channelId, discordClient, host, port, version).catch((err) => {
+            serverListen(message.channel.id, discordClient, host, port, version).catch((err) => {
                 return message.channel.send("An error has occured")
             })
             message.channel.send(`Started listening to ${host}:${port} on version ${version}`)
@@ -77,7 +77,7 @@ discordClient.on('messageCreate', async (message) => {
                 message.channel.send("please sen")
             })
         } */ else {
-            serverListen(message.channelId, discordClient, config.host, config.port, config.version)
+            serverListen(message.channel.id, discordClient, config.host, config.port, config.version)
             message.channel.send(`Started listening to ${config.host}:${config.port} on version ${config.version}`)
         }
         

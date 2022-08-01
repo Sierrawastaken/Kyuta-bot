@@ -10,8 +10,16 @@ const random = Math.floor(Math.random() * 101)
 
 let bridgedMessage
 
-export async function serverListen(bedrockClient, channelId, discordClient, host, port, version) {
+export async function serverListen(channelId, discordClient, host, port, version) {
     
+    const bedrockClient = bedrock.createClient({
+        host: host,
+        port: port,
+        version: version,
+        username: `Kyuta${random}`,
+        offline: true
+    })
+
     bedrockClient.on('packet', async (packet) => {
         if (packet.name != 'start_game') return
 
@@ -79,9 +87,10 @@ export async function serverListen(bedrockClient, channelId, discordClient, host
         
     })
 
-    discordClient.on('messageCreate', async (message) => {
-        message.content = message.content.toLowerCase()
-        if (message.channel.id != channelId) return
+    discordClient.on("message", async (message) => {
+
+        if (message.channel.id !== channelId) return
+
         if (message.author.bot) return
 
         if (message.content === `${config.prefix}break`) {

@@ -67,7 +67,7 @@ export function commandOutput(packet, colour) {
 }
 
 export function serverInfo(channel) {
-    let embed = new discord.MessageEmbed()
+    let serverInfoEmbed = new discord.MessageEmbed()
             .setColor("#52c8db")
             .setTitle("Important server information")
             .setDescription(`${serverData.params.world_name}:`)
@@ -85,7 +85,7 @@ export function serverInfo(channel) {
             })
     
     if (config.detailedInfo) {
-        embed.addFields(
+        serverInfoEmbed.addFields(
             { name: "World Spawn", value: `${serverData.params.spawn_position.x}, ${serverData.params.spawn_position.y}, ${serverData.params.spawn_position.z}‎`, inline: true },
             { name: "New Nether", value: `${serverData.params.is_new_nether}‎`, inline: true },
             { name: "Level Id", value: `${serverData.params.level_id}‎`, inline: true },
@@ -97,11 +97,11 @@ export function serverInfo(channel) {
         )
     }
 
-        return channel.send({ embeds: [embed] })
+        return channel.send(serverInfoEmbed)
 }
 
 export function helpEmbed(channel) {
-    let embed = new discord.MessageEmbed()
+    let helpEmbed = new discord.MessageEmbed()
             .setColor("#52c8db")
             .setTitle("Kyuta Help Commands")
             .setURL("https://github.com/Sierrawastaken/Kyuta-bot")
@@ -119,11 +119,11 @@ export function helpEmbed(channel) {
                 iconURL: config.botAv
             })
 
-        return channel.send({ embeds: [embed] })
+        return channel.send(helpEmbed)
 }
 
 export function serverHelp(channel) {
-    let embed = new discord.MessageEmbed()
+    let serverEmbed = new discord.MessageEmbed()
             .setColor("#52c8db")
             .setTitle("Kyuta Server Listening Commands")
             .setURL("https://github.com/Sierrawastaken/Kyuta-bot#commands---usage")
@@ -139,5 +139,5 @@ export function serverHelp(channel) {
                 iconURL: config.botAv
             })
 
-        return channel.send({ embeds: [embed] })
+        return channel.send(serverEmbed)
 }
