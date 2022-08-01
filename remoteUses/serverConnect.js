@@ -144,8 +144,6 @@ export async function serverListen(channelId, discordClient, host, port, version
             bridgedMessage + " (and an image)"
         }
 
-        bridgedMessage = bridgedMessage.replace(/[^a-z0-9 ]/gi, "")
-
         if (!message.reference) {
             bedrockClient.queue('command_request', {
                 command: `/tellraw @a {"rawtext":[{"text":"§r§4[Discord]§f ${message.author.username}: ${bridgedMessage}"}]}`,
