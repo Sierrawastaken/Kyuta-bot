@@ -1,9 +1,9 @@
 import discord from 'discord.js'
-import config from './config.json' assert { type: "json" }
+import config from './data/config.json' assert { type: "json" }
 import { serverListen } from './remoteUses/serverConnect.js'
 import fs from "fs"
 import { pingServer } from './remoteUses/ping.js'
-import bruh from './utils/users.json' assert { type: "json" }
+import bruh from './data/users.json' assert { type: "json" }
 import { helpEmbed, serverHelp, serverInfo } from './utils/messageTemplates.js'
 
 let host, port, version

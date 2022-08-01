@@ -1,9 +1,9 @@
 import bedrock from 'bedrock-protocol'
-import config from '../config.json' assert { type: "json" }
+import config from '../data/config.json' assert { type: "json" }
 import { chatMessage, connMessage, deathMessage, commandOutput } from '../utils/messageTemplates.js'
 import { hasAttachment } from '../utils/utils.js'
 import fs from 'fs/promises'
-import formating from '../utils/formating.json' assert { type: "json" }
+import formating from '../data/formating.json' assert { type: "json" }
 
 //change this if you want no randomized endings
 const random = Math.floor(Math.random() * 101)

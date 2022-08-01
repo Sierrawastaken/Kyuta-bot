@@ -1,6 +1,6 @@
 import { ping } from 'bedrock-protocol'
 import { MessageEmbed } from 'discord.js'
-import config from '../config.json' assert { type: "json" }
+import config from '../data/config.json' assert { type: "json" }
 
 export async function pingServer (host, port, channel) {
     
