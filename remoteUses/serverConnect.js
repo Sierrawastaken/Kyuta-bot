@@ -19,7 +19,7 @@ export async function serverListen(channelId, discordClient, host, port, version
         username: `Kyuta${random}`,
         offline: true
     })
-    
+
     bedrockClient.on('packet', async (packet) => {
         if (packet.name != 'start_game') return
 
@@ -143,6 +143,8 @@ export async function serverListen(channelId, discordClient, host, port, version
         } else if (bridgedMessage != "" && hasAttachment(message)) {
             bridgedMessage + " (and an image)"
         }
+
+        bridgedMessage = bridgedMessage.replace(/[^a-z0-9 ]/gi, "")
 
         if (!message.reference) {
             bedrockClient.queue('command_request', {
