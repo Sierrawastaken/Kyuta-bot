@@ -5,7 +5,7 @@
 </p>
 
 
-Kyuta is discord chat-bridge integration for minecraft based on the [bedrock-protocol](https://github.com/PrismarineJS/bedrock-protocol) library and functions similarly to [! Pixel](https://github.com/0x506978656c)'s BDScord. Simply put we are attaching a dummy client to the selected multiplayer server and using that dummy account to intercept incoming and outgoing packets to read them and transmit their data. While application such as BDScord have more server modding capibilities, Kyuta can be used on any server despite whether you have access to server files or not.
+Kyuta is discord chat-bridge integration for minecraft based on the [bedrock-protocol](https://github.com/PrismarineJS/bedrock-protocol) library and functions similarly to [! Pixel](https://github.com/0x506978656c)'s BDScord. Simply put we are attaching a dummy client to the selected multiplayer server and using that dummy account to intercept incoming and outgoing packets to read them and transmit their data. While application such as BDScord have more server modding capibilities, Kyuta can be used on any server despite whether you have access to server files or not. However Kyuta will still need operator perms to send messages from discord.
 
 
 # Commands - Usage
